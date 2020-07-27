@@ -55,6 +55,74 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="enums\MyFlowDirection.cs" />
+    <Compile Include="enums\MyFontStretch.cs" />
+    <Compile Include="enums\MyFontStyle.cs" />
+    <Compile Include="enums\MyFontWeight.cs" />
+    <Compile Include="enums\MyHorizontalAlignment.cs" />
+    <Compile Include="enums\MyTextAlignment.cs" />
+    <Compile Include="enums\MyTextWrapping.cs" />
+    <Compile Include="enums\MyVerticalAlignment.cs" />
+    <Compile Include="ui_elements\button\BuilderButton.cs" />
+    <Compile Include="ui_elements\button\IMyButton.cs" />
+    <Compile Include="ui_elements\button\IMyButtonInjector.cs" />
+    <Compile Include="ui_elements\button\MyButton.cs" />
+    <Compile Include="ui_elements\check_box\BuilderCheckBox.cs" />
+    <Compile Include="ui_elements\check_box\IMyCheckBox.cs" />
+    <Compile Include="ui_elements\check_box\IMyCheckBoxInjector.cs" />
+    <Compile Include="ui_elements\check_box\MyCheckBox.cs" />
+    <Compile Include="ui_elements\combo_box\BuilderComboBox.cs" />
+    <Compile Include="ui_elements\combo_box\IMyComboBox.cs" />
+    <Compile Include="ui_elements\combo_box\IMyComboBoxInjector.cs" />
+    <Compile Include="ui_elements\combo_box\MyComboBox.cs" />
+    <Compile Include="ui_elements\data_grid\BuilderDataGrid.cs" />
+    <Compile Include="ui_elements\data_grid\IMyDataGrid.cs" />
+    <Compile Include="ui_elements\data_grid\MyDataGrid.cs" />
+    <Compile Include="ui_elements\date_picker\BuilderDatePicker.cs" />
+    <Compile Include="ui_elements\date_picker\IMyDatePicker.cs" />
+    <Compile Include="ui_elements\date_picker\IMyDatePickerInjector.cs" />
+    <Compile Include="ui_elements\date_picker\MyDatePicker.cs" />
+    <Compile Include="ui_elements\list_box\BuilderListBox.cs" />
+    <Compile Include="ui_elements\list_box\IMyListBox.cs" />
+    <Compile Include="ui_elements\list_box\IMyListBoxInjector.cs" />
+    <Compile Include="ui_elements\list_box\MyListBox.cs" />
+    <Compile Include="ui_elements\list_view\BuilderListView.cs" />
+    <Compile Include="ui_elements\list_view\IMyListView.cs" />
+    <Compile Include="ui_elements\list_view\IMyListViewInjector.cs" />
+    <Compile Include="ui_elements\list_view\MyListView.cs" />
+    <Compile Include="ui_elements\password_box\BuilderPasswordBox.cs" />
+    <Compile Include="ui_elements\password_box\IMyPasswordBox.cs" />
+    <Compile Include="ui_elements\password_box\IMyPasswordBoxInjector.cs" />
+    <Compile Include="ui_elements\password_box\MyPasswordBox.cs" />
+    <Compile Include="ui_elements\progress_bar\BuilderProgressBar.cs" />
+    <Compile Include="ui_elements\progress_bar\IMyDoubleAnimation.cs" />
+    <Compile Include="ui_elements\progress_bar\IMyDuration.cs" />
+    <Compile Include="ui_elements\progress_bar\IMyProgressBar.cs" />
+    <Compile Include="ui_elements\progress_bar\IMyProgressBarInjector.cs" />
+    <Compile Include="ui_elements\progress_bar\MyDoubleAnimation.cs" />
+    <Compile Include="ui_elements\progress_bar\MyDuration.cs" />
+    <Compile Include="ui_elements\progress_bar\MyProgressBar.cs" />
+    <Compile Include="ui_elements\radio_button\BuilderRadioButton.cs" />
+    <Compile Include="ui_elements\radio_button\IMyRadioButton.cs" />
+    <Compile Include="ui_elements\radio_button\IMyRadioButtonInjector.cs" />
+    <Compile Include="ui_elements\radio_button\MyRadioButton.cs" />
+    <Compile Include="ui_elements\text_block\BuilderTextBlock.cs" />
+    <Compile Include="ui_elements\text_block\IMyTextBlock.cs" />
+    <Compile Include="ui_elements\text_block\IMyTextBlockInjector.cs" />
+    <Compile Include="ui_elements\text_block\MyTextBlock.cs" />
+    <Compile Include="ui_elements\text_box\BuilderTextBox.cs" />
+    <Compile Include="ui_elements\text_box\IMyTextBox.cs" />
+    <Compile Include="ui_elements\text_box\IMyTextBoxInjector.cs" />
+    <Compile Include="ui_elements\text_box\MyTextBox.cs" />
+    <Compile Include="ui_elements\toggle_button\IMyToggleButton.cs" />
+    <Compile Include="ui_elements\toggle_button\MyToggleButton.cs" />
+    <Compile Include="ui_elements\tool_tip\BuilderToolTip.cs" />
+    <Compile Include="ui_elements\tool_tip\IMyToolTip.cs" />
+    <Compile Include="ui_elements\tool_tip\IMyToolTipInjector.cs" />
+    <Compile Include="ui_elements\tool_tip\MyToolTip.cs" />
+    <Compile Include="validator\IValidator.cs" />
+    <Compile Include="validator\MyRegex.cs" />
+    <Compile Include="validator\Validator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,6 +131,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="basic\IMyContainer.cs" />
+    <Compile Include="basic\IMyController.cs" />
+    <Compile Include="basic\IMyDateTime.cs" />
+    <Compile Include="basic\IMyMethodCaller.cs" />
+    <Compile Include="basic\IMySolidColorBrush.cs" />
+    <Compile Include="basic\IMyView.cs" />
+    <Compile Include="basic\MyBrushConverter.cs" />
+    <Compile Include="basic\MyColor.cs" />
+    <Compile Include="basic\MyController.cs" />
+    <Compile Include="basic\MyDateTime.cs" />
+    <Compile Include="basic\MyGrid.cs" />
+    <Compile Include="basic\MyList.cs" />
+    <Compile Include="basic\MySolidColorBrush.cs" />
+    <Compile Include="basic\MyString.cs" />
+    <Compile Include="basic\MyUserControl.cs" />
+    <Compile Include="basic\MyWindow.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -93,6 +177,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ui_theme\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\WORLDMAP.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

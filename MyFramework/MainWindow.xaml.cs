@@ -1,25 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using MyFramework.basic;
+using MyFramework.ui_elements.button;
+using MyFramework.ui_elements.progress_bar;
+
 
 namespace MyFramework {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window {
+    public partial class MainWindow : MyWindow {
+        BuilderButton builderButton;
+        BuilderProgressBar builderProgressBar;
+        IMyButton testButton;
+
         public MainWindow() {
             InitializeComponent();
+            builderButton = new BuilderButton();
+            testButton = builderButton
+                .activate(this, "testButton_btn")
+                .addOnClick(this, "testMethod")
+                .setTooltip("Ini button Test")
+                .setBackgroundImage("images/WORLDMAP.png");
+        }
+
+        public void testMethod() {
+            this.Close();
         }
     }
 }
