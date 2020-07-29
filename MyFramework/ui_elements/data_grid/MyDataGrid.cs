@@ -1,11 +1,8 @@
 ﻿using MyFramework.basic;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace MyFramework.ui_elements.data_grid
 {
@@ -14,21 +11,23 @@ namespace MyFramework.ui_elements.data_grid
         private DataGrid myDataGrid_dg; 
         internal MyDataGrid(Object _deployedDataGrid) {
             myDataGrid_dg = (DataGrid)_deployedDataGrid;
+            myDataGrid_dg.AutoGenerateColumns = false;
         }
 
         #region properties
-        
+        //doesntwork
         public IMyDataGrid addItemSource<T>(MyList<T> _listItem) {
             foreach(T item in _listItem) {
                 myDataGrid_dg.Items.Add(item);
             }
             return this;
         }
+        //doesntwork
         public IMyDataGrid addItem<T>(T _item) {
             myDataGrid_dg.Items.Add(_item);
             return this;
         }
-        
+        //deletesoon
         public IMyDataGrid setColumnHeader(string _columnHeader, string _propertyName) {
             DataGridTextColumn dtx = new DataGridTextColumn();
             dtx.Header = _columnHeader;
@@ -36,9 +35,11 @@ namespace MyFramework.ui_elements.data_grid
             myDataGrid_dg.Columns.Add(dtx);
             return this;
         }
-        public IMyDataGrid setColumnHeader(MyList<string> _columnHeader, MyList<string> _propertyName) {
+
+        public IMyDataGrid setColumnDataBinding<T>(MyList<string> _columnHeader, MyList<string> _propertyName, MyList<T> _data) {
             for(int i = 0; i<_columnHeader.Count; i++) {
                 DataGridTextColumn dtx = new DataGridTextColumn();
+                myDataGrid_dg.ItemsSource = _data;
                 dtx.Header = _columnHeader[i];
                 dtx.Binding = new Binding(_propertyName[i]);
                 myDataGrid_dg.Columns.Add(dtx);
@@ -80,10 +81,52 @@ namespace MyFramework.ui_elements.data_grid
 
         #region column-width
 
-        public IMyDataGrid setColumnWidth(int _columnWidth) {
+        public IMyDataGrid setAllColumnWidth(int _columnWidth) {
             myDataGrid_dg.ColumnWidth = _columnWidth;
             return this;
         }
+
+        public IMyDataGrid setAllColumnWidth(DataGridLength _columnWidth) {
+            myDataGrid_dg.ColumnWidth = _columnWidth;
+            return this;
+        }
+
+        public IMyDataGrid setOneColumnWidth(string _header, int _width) {
+            foreach (DataGridColumn column in myDataGrid_dg.Columns) {
+                if (_header.Equals(column.Header)) {
+                    column.Width = _width;
+                }
+            }
+            return this;
+        }
+
+        public IMyDataGrid setOneColumnWidth(string _header, DataGridLength _width) {
+            foreach (DataGridColumn column in myDataGrid_dg.Columns) {
+                if (_header.Equals(column.Header)) {
+                    column.Width = _width;
+                }
+            }
+            return this;
+        }
+
+        public IMyDataGrid setOneColumnMaxWidth(string _header, int _width) {
+            foreach (DataGridColumn column in myDataGrid_dg.Columns) {
+                if (_header.Equals(column.Header)) {
+                    column.MaxWidth = _width;
+                }
+            }
+            return this;
+        }
+
+        public IMyDataGrid setOneColumnMinWidth(string _header, int _width) {
+            foreach (DataGridColumn column in myDataGrid_dg.Columns) {
+                if (_header.Equals(column.Header)) {
+                    column.MinWidth = _width;
+                }
+            }
+            return this;
+        }
+
         public IMyDataGrid setMaxColumnWidth(int _columnMaxWidth) {
             myDataGrid_dg.ColumnWidth = _columnMaxWidth; 
             return this;

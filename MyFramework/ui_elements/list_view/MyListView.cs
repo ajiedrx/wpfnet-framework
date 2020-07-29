@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace MyFramework.ui_elements.list_view
 {
@@ -17,8 +18,33 @@ namespace MyFramework.ui_elements.list_view
             myListView_lv = (ListView)_deployedListView;
         }
 
+        public IMyListView addGridViewColumns(MyList<string> _headers, MyList<string> _propertyNames) {
+            GridView gridView = new GridView();
+            myListView_lv.View = gridView;
+            for (int i = 0; i < _headers.Count; i++) {
+                gridView.Columns.Add(new GridViewColumn { 
+                    Header = _headers[i], 
+                    DisplayMemberBinding = new Binding(_propertyNames[i])
+                });
+            }
+            return this;
+        }
+
+        public IMyListView addItems<T>(MyList<T> _items) {
+            foreach (T item in _items) {
+                myListView_lv.Items.Add(item);
+            }
+            return this;
+        }
         public IMyListView addItem(object _item) {
             myListView_lv.Items.Add(_item);
+            return this;
+        }
+
+        public IMyListView addItems(MyList<object> _items) {
+            foreach (object obj in _items) {
+                myListView_lv.Items.Add(obj);
+            }
             return this;
         }
 
@@ -53,5 +79,22 @@ namespace MyFramework.ui_elements.list_view
         public void setMySolidColorBrush(IMySolidColorBrush _mySolidColorBrush) {
             this.mySolidColorBrush = _mySolidColorBrush;
         }
+
+        #region event-handler
+
+        public IMyListView addOnSelectionChanged(IMyController _controller, string _methodName) {
+            myListView_lv.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e) {
+                _controller.callMethod(_methodName, myListView_lv.SelectedItem);
+            };
+            return this;
+        }
+
+        public IMyListView addOnSelectionChanged(IMyView _view, string _methodName) {
+            myListView_lv.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e) {
+                _view.callMethod(_methodName, myListView_lv.SelectedItem);
+            };
+            return this;
+        }
+        #endregion
     }
 }

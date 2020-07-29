@@ -17,6 +17,7 @@ namespace MyFramework.ui_elements.list_box
 
         IMyListBox addItem(string _item);
         string getSelectedItem();
+        MyList<string> getSelectedItems();
         int getSelectedItemIndex();
         int getNumberOfItems();
         IMyListBox setItemList(MyList<string> _listOfItem);
@@ -31,5 +32,6 @@ namespace MyFramework.ui_elements.list_box
         IMyListBox setBackgroundColor(string _color);
         IMyListBox setTextColor(string _color);
         IMyListBox addOnSelectionChanged(IMyController _controller, string _methodName);
+        IMyListBox addOnSelectionChanged(IMyView _view, string _methodName);
     }
 }

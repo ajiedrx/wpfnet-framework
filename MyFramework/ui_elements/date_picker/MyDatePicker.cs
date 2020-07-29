@@ -126,7 +126,7 @@ namespace MyFramework.ui_elements.date_picker
 
         public IMyDatePicker addSelectedDateChanged(IMyController _controller, string _methodName) {
             myDatePicker_dat.SelectedDateChanged += delegate (object sender, SelectionChangedEventArgs e) {
-                _controller.callMethod(_methodName);
+                _controller.callMethod(_methodName, myDatePicker_dat.SelectedDate);
             };
             return this;
         }

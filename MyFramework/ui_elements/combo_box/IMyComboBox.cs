@@ -37,6 +37,9 @@ namespace MyFramework.ui_elements.combo_box {
         IMyComboBox addOnDropDownOpened(IMyController _controller, string _methodName);
         IMyComboBox addOnDropDownClosed(IMyController _controller, string _methodName);
         IMyComboBox addOnSelectionChanged(IMyController _controller, string _methodName);
+        IMyComboBox addOnDropDownOpened(IMyView IMyView, string _methodName);
+        IMyComboBox addOnDropDownClosed(IMyView IMyView, string _methodName);
+        IMyComboBox addOnSelectionChanged(IMyView IMyView, string _methodName);
 
     }
 }

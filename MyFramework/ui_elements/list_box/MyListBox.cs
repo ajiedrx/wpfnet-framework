@@ -63,6 +63,10 @@ namespace MyFramework.ui_elements.list_box
         public string getSelectedItem() {
             return myListBox_lb.SelectedItem.ToString();
         }
+
+        public MyList<string> getSelectedItems() {
+            return (MyList<string>)myListBox_lb.SelectedItems;
+        }
         
         public int getSelectedItemIndex() {
             return myListBox_lb.SelectedIndex;
@@ -125,7 +129,14 @@ namespace MyFramework.ui_elements.list_box
 
         public IMyListBox addOnSelectionChanged(IMyController _controller, string _methodName) {
             myListBox_lb.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e) {
-                _controller.callMethod(_methodName);
+                _controller.callMethod(_methodName, myListBox_lb.SelectedItem.ToString());
+            };
+            return this;
+        }
+
+        public IMyListBox addOnSelectionChanged(IMyView _view, string _methodName) {
+            myListBox_lb.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e) {
+                _view.callMethod(_methodName, myListBox_lb.SelectedItem.ToString());
             };
             return this;
         }
@@ -133,7 +144,7 @@ namespace MyFramework.ui_elements.list_box
         #endregion
 
         #region set-field
-        
+
         public void setMySolidColorBrush(IMySolidColorBrush _mySolidColorBrush) {
             this.mySolidColorBrush = _mySolidColorBrush;
         }

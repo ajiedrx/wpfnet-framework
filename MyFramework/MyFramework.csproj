@@ -63,6 +63,7 @@
     <Compile Include="enums\MyTextAlignment.cs" />
     <Compile Include="enums\MyTextWrapping.cs" />
     <Compile Include="enums\MyVerticalAlignment.cs" />
+    <Compile Include="TestModel.cs" />
     <Compile Include="ui_elements\button\BuilderButton.cs" />
     <Compile Include="ui_elements\button\IMyButton.cs" />
     <Compile Include="ui_elements\button\IMyButtonInjector.cs" />

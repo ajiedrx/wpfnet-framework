@@ -42,5 +42,8 @@ namespace MyFramework.ui_elements.button {
         IMyButton addOnMouseDown(IMyController _controller, string _methodName);
         IMyButton addOnMouseUp(IMyController _controller, string _methodName);
 
+        IMyButton addOnMouseHover(IMyController _controller, string _methodName);
+        IMyButton addOnMouseHover(IMyView _controller, string _methodName);
+
     }
 }

@@ -62,9 +62,6 @@ namespace MyFramework.ui_elements.combo_box
             myComboBox_cbo.SelectedIndex = _itemIndex;
             return this;
         }
-        public int getSelectedItemIndex() {
-            return myComboBox_cbo.SelectedIndex;
-        }
 
         public bool isDropDownOpen() {
             return myComboBox_cbo.IsDropDownOpen;
@@ -140,13 +137,40 @@ namespace MyFramework.ui_elements.combo_box
             };
             return this;
         }
+
         public IMyComboBox addOnSelectionChanged(IMyController _controller, string _methodName) {
             myComboBox_cbo.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e) {
-                _controller.callMethod(_methodName);
+                _controller.callMethod(_methodName, ((sender as ComboBox).SelectedItem as ComboBoxItem));
             };
             return this;
         }
 
+        public IMyComboBox addOnDropDownOpened(IMyView _view, string _methodName) {
+            myComboBox_cbo.DropDownOpened += delegate (object sender, EventArgs e) {
+                _view.callMethod(_methodName);
+            };
+            return this;
+        }
+        public IMyComboBox addOnDropDownClosed(IMyView _view, string _methodName) {
+            myComboBox_cbo.DropDownClosed += delegate (object sender, EventArgs e) {
+                _view.callMethod(_methodName);
+            };
+            return this;
+        }
+        
+        public IMyComboBox addOnSelectionChanged(IMyView _view, string _methodName) {
+            myComboBox_cbo.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e) {
+                _view.callMethod(_methodName, ((sender as ComboBox).SelectedItem as ComboBoxItem));
+            };
+            return this;
+        }
+
+        #endregion
+
+        #region get-field
+        public int getSelectedItemIndex() {
+            return myComboBox_cbo.SelectedIndex;
+        }
         #endregion
 
         #region set-field

@@ -30,5 +30,10 @@ namespace MyFramework.ui_elements.check_box {
         IMyCheckBox setBackgroundColor(string _color);
         IMyCheckBox addOnClick(IMyController _controller, string _methodName);
         IMyCheckBox addOnChecked(IMyController _controller, string _methodName);
+
+        IMyCheckBox addOnUnchecked(IMyController _controller, string _methodName);
+        IMyCheckBox addOnClick(IMyView _view, string _methodName);
+        IMyCheckBox addOnChecked(IMyView _view, string _methodName);
+        IMyCheckBox addOnUnchecked(IMyView _view, string _methodName);
     }
 }

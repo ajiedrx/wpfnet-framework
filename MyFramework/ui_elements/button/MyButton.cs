@@ -155,6 +155,20 @@ namespace MyFramework.ui_elements.button {
             };
             return this;
         }
+
+        public IMyButton addOnMouseHover(IMyController _controller, string _methodName) {
+            myButton_btn.MouseEnter += delegate (object sender, MouseEventArgs e) {
+                _controller.callMethod(_methodName);
+            };
+            return this;
+        }
+
+        public IMyButton addOnMouseHover(IMyView _controller, string _methodName) {
+            myButton_btn.MouseEnter += delegate (object sender, MouseEventArgs e) {
+                _controller.callMethod(_methodName);
+            };
+            return this;
+        }
         #endregion
 
         #region set-field

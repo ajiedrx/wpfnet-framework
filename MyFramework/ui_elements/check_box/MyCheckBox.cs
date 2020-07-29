@@ -133,6 +133,34 @@ namespace MyFramework.ui_elements.check_box {
             return this;
         }
 
+        public IMyCheckBox addOnUnchecked(IMyController _controller, string _methodName) {
+            myCheckBox_chk.Unchecked += delegate (object sender, System.Windows.RoutedEventArgs e) {
+                _controller.callMethod(_methodName);
+            };
+            return this;
+        }
+
+        public IMyCheckBox addOnClick(IMyView _view, string _methodName) {
+            myCheckBox_chk.Click += delegate (object sender, System.Windows.RoutedEventArgs e) {
+                _view.callMethod(_methodName);
+            };
+            return this;
+        }
+
+        public IMyCheckBox addOnChecked(IMyView _view, string _methodName) {
+            myCheckBox_chk.Checked += delegate (object sender, System.Windows.RoutedEventArgs e) {
+                _view.callMethod(_methodName);
+            };
+            return this;
+        }
+
+        public IMyCheckBox addOnUnchecked(IMyView _view, string _methodName) {
+            myCheckBox_chk.Unchecked += delegate (object sender, System.Windows.RoutedEventArgs e) {
+                _view.callMethod(_methodName);
+            };
+            return this;
+        }
+
         #endregion
 
         #region set-field

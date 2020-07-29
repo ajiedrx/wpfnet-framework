@@ -9,6 +9,25 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Name="testButton_btn" Content="Button" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" Width="75"/>
-        <ProgressBar Name="progressBar_pb" HorizontalAlignment="Left" Height="10" Margin="207,114,0,0" VerticalAlignment="Top" Width="100"/>
+        <DataGrid Name="testDataGrid_dg" HorizontalAlignment="Left" Height="160" Margin="23,25,0,0" VerticalAlignment="Top" Width="587"/>
+        <DatePicker HorizontalAlignment="Left" Margin="26,206,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.143,0.617" Height="32" Width="126">
+            <DatePicker.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.656"/>
+                    <TranslateTransform X="0.036" Y="0.417"/>
+                </TransformGroup>
+            </DatePicker.RenderTransform>
+        </DatePicker>
+        <ListView Name="testListView_lsv" HorizontalAlignment="Left" Height="auto" Margin="269,261,0,0" VerticalAlignment="Top" Width="auto">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock HorizontalAlignment="Left" Margin="269,240,0,0" TextWrapping="Wrap" Text="List View" VerticalAlignment="Top"/>
+        <PasswordBox Name="testPasswordBox_pb" HorizontalAlignment="Left" Margin="575,240,0,0" VerticalAlignment="Top" Width="69"/>
     </Grid>
 </basic:MyWindow>
