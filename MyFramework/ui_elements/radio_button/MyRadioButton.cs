@@ -119,6 +119,11 @@ namespace MyFramework.ui_elements.radio_button
             return this;
         }
 
+        public IMyRadioButton setGroupName(string _name) {
+            myRadioButton_rdo.GroupName = _name;
+            return this;
+        }
+
         #endregion
 
         #region event-handler

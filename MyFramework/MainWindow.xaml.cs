@@ -4,6 +4,7 @@ using MyFramework.ui_elements.data_grid;
 using MyFramework.ui_elements.list_box;
 using MyFramework.ui_elements.list_view;
 using MyFramework.ui_elements.password_box;
+using MyFramework.ui_elements.progress_bar;
 using System;
 
 namespace MyFramework {
@@ -13,12 +14,14 @@ namespace MyFramework {
         BuilderListBox builderListBox;
         BuilderListView builderListView;
         BuilderPasswordBox builderPasswordBox;
+        BuilderProgressBar builderProgressBar;
 
         IMyButton testButton;
         IMyDataGrid testDataGrid;
         IMyListBox testListBox;
         IMyListView testListView;
         IMyPasswordBox testPasswordBox;
+        IMyProgressBar testProgressBar;
 
         public MainWindow() {
             InitializeComponent();
@@ -60,6 +63,11 @@ namespace MyFramework {
             builderPasswordBox = new BuilderPasswordBox();
             testPasswordBox = builderPasswordBox
                 .activate(this, "testPasswordBox_pb");
+
+            builderProgressBar = new BuilderProgressBar();
+            testProgressBar = builderProgressBar
+                .activate(this, "testProgressBar_pgsb")
+                .setIndeterminate(true);
         }
 
         public void testMethod() {

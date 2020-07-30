@@ -15,7 +15,7 @@
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-0.656"/>
+                    <RotateTransform Angle="0.043"/>
                     <TranslateTransform X="0.036" Y="0.417"/>
                 </TransformGroup>
             </DatePicker.RenderTransform>
@@ -29,5 +29,8 @@
         </ListView>
         <TextBlock HorizontalAlignment="Left" Margin="269,240,0,0" TextWrapping="Wrap" Text="List View" VerticalAlignment="Top"/>
         <PasswordBox Name="testPasswordBox_pb" HorizontalAlignment="Left" Margin="575,240,0,0" VerticalAlignment="Top" Width="69"/>
+        <ProgressBar Name="testProgressBar_pgsb" HorizontalAlignment="Left" Height="10" Margin="269,304,0,0" VerticalAlignment="Top" Width="100"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="575,292,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="575,312,0,0" VerticalAlignment="Top"/>
     </Grid>
 </basic:MyWindow>
