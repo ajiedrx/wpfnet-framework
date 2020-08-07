@@ -1,24 +1,32 @@
 ﻿using MyFramework.basic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyFramework.ui_elements.button
 {
+    /// <summary>
+    /// The button element builder class.
+    /// </summary>
+    /// <remarks>Below is an usage example</remarks>
+    /// <example>
+    /// <code>
+    /// IMyButton button;
+    /// BuilderButton builderButton = new BuilderButton();
+    /// button = builderButton
+    ///          .activate(this, "button_btn")
+    ///          .setText("Test");
+    /// </code>
+    /// </example>
     public class BuilderButton
     {
-        IMySolidColorBrush mySolidColorBrush = new MySolidColorBrush();
         public BuilderButton() { }
-
-        public IMyButton activate(IMyContainer _container, String _instanceName)
+        /// <summary>
+        /// Method for getting the UI Element instance.
+        /// </summary>
+        /// <param name="_container"></param>
+        /// <param name="_instanceName"></param>
+        /// <returns>IMyButton</returns>
+        public IMyButton activate(IMyContainer _container, string _instanceName)
         {
             IMyButton button = new MyButton(_container.getComponentByName(_instanceName));
-
-            IMyButtonInjector comboBoxInjector = (IMyButtonInjector)button;
-            comboBoxInjector.setMySolidColorBrush(mySolidColorBrush);
-
             return button;
         }
     }

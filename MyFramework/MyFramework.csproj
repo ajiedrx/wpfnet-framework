@@ -27,6 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\MyFramework.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -63,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="basic\MyUIElements.cs" />
     <Compile Include="enums\MyFlowDirection.cs" />
     <Compile Include="enums\MyFontStretch.cs" />
     <Compile Include="enums\MyFontStyle.cs" />
@@ -71,18 +73,16 @@
     <Compile Include="enums\MyTextAlignment.cs" />
     <Compile Include="enums\MyTextWrapping.cs" />
     <Compile Include="enums\MyVerticalAlignment.cs" />
+    <Compile Include="NameSpaces.cs" />
     <Compile Include="TestModel.cs" />
     <Compile Include="ui_elements\button\BuilderButton.cs" />
     <Compile Include="ui_elements\button\IMyButton.cs" />
-    <Compile Include="ui_elements\button\IMyButtonInjector.cs" />
     <Compile Include="ui_elements\button\MyButton.cs" />
     <Compile Include="ui_elements\check_box\BuilderCheckBox.cs" />
     <Compile Include="ui_elements\check_box\IMyCheckBox.cs" />
-    <Compile Include="ui_elements\check_box\IMyCheckBoxInjector.cs" />
     <Compile Include="ui_elements\check_box\MyCheckBox.cs" />
     <Compile Include="ui_elements\combo_box\BuilderComboBox.cs" />
     <Compile Include="ui_elements\combo_box\IMyComboBox.cs" />
-    <Compile Include="ui_elements\combo_box\IMyComboBoxInjector.cs" />
     <Compile Include="ui_elements\combo_box\MyComboBox.cs" />
     <Compile Include="ui_elements\data_grid\BuilderDataGrid.cs" />
     <Compile Include="ui_elements\data_grid\IMyDataGrid.cs" />
@@ -93,15 +93,12 @@
     <Compile Include="ui_elements\date_picker\MyDatePicker.cs" />
     <Compile Include="ui_elements\list_box\BuilderListBox.cs" />
     <Compile Include="ui_elements\list_box\IMyListBox.cs" />
-    <Compile Include="ui_elements\list_box\IMyListBoxInjector.cs" />
     <Compile Include="ui_elements\list_box\MyListBox.cs" />
     <Compile Include="ui_elements\list_view\BuilderListView.cs" />
     <Compile Include="ui_elements\list_view\IMyListView.cs" />
-    <Compile Include="ui_elements\list_view\IMyListViewInjector.cs" />
     <Compile Include="ui_elements\list_view\MyListView.cs" />
     <Compile Include="ui_elements\password_box\BuilderPasswordBox.cs" />
     <Compile Include="ui_elements\password_box\IMyPasswordBox.cs" />
-    <Compile Include="ui_elements\password_box\IMyPasswordBoxInjector.cs" />
     <Compile Include="ui_elements\password_box\MyPasswordBox.cs" />
     <Compile Include="ui_elements\progress_bar\BuilderProgressBar.cs" />
     <Compile Include="ui_elements\progress_bar\IMyDoubleAnimation.cs" />
@@ -113,15 +110,12 @@
     <Compile Include="ui_elements\progress_bar\MyProgressBar.cs" />
     <Compile Include="ui_elements\radio_button\BuilderRadioButton.cs" />
     <Compile Include="ui_elements\radio_button\IMyRadioButton.cs" />
-    <Compile Include="ui_elements\radio_button\IMyRadioButtonInjector.cs" />
     <Compile Include="ui_elements\radio_button\MyRadioButton.cs" />
     <Compile Include="ui_elements\text_block\BuilderTextBlock.cs" />
     <Compile Include="ui_elements\text_block\IMyTextBlock.cs" />
-    <Compile Include="ui_elements\text_block\IMyTextBlockInjector.cs" />
     <Compile Include="ui_elements\text_block\MyTextBlock.cs" />
     <Compile Include="ui_elements\text_box\BuilderTextBox.cs" />
     <Compile Include="ui_elements\text_box\IMyTextBox.cs" />
-    <Compile Include="ui_elements\text_box\IMyTextBoxInjector.cs" />
     <Compile Include="ui_elements\text_box\MyTextBox.cs" />
     <Compile Include="ui_elements\toggle_button\IMyToggleButton.cs" />
     <Compile Include="ui_elements\toggle_button\MyToggleButton.cs" />
@@ -179,17 +173,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="api\index.md" />
-    <None Include="articles\intro.md" />
-    <None Include="articles\toc.md" />
-    <None Include="docfx.json" />
-    <None Include="index.md" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="toc.yml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -200,13 +188,14 @@
   <ItemGroup>
     <Resource Include="images\WORLDMAP.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ui_elements\ui_elements.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\docfx.console.2.56.2\build\docfx.console.targets" Condition="Exists('..\packages\docfx.console.2.56.2\build\docfx.console.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\docfx.console.2.56.2\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\docfx.console.2.56.2\build\docfx.console.targets'))" />
     <Error Condition="!Exists('..\packages\EWSoftware.SHFB.2020.3.6\build\EWSoftware.SHFB.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EWSoftware.SHFB.2020.3.6\build\EWSoftware.SHFB.props'))" />
   </Target>
 </Project>

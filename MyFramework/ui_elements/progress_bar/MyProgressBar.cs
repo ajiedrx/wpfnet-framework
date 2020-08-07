@@ -1,106 +1,194 @@
 ﻿using MyFramework.basic;
 using MyFramework.enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Resources;
 
 namespace MyFramework.ui_elements.progress_bar
 {
-    internal class MyProgressBar : IMyProgressBar, IMyProgressBarInjector
+    internal class MyProgressBar : MyUIElements, IMyProgressBar, IMyProgressBarInjector
     {
         private ProgressBar myProgressBar_pb;
-        private IMySolidColorBrush mySolidColorBrush;
         private IMyDuration myDuration;
         private IMyDoubleAnimation myDoubleAnimation;
-        internal MyProgressBar(Object _developedProgressBar) {
-            myProgressBar_pb = (ProgressBar)_developedProgressBar;
+        internal MyProgressBar(object _uiElement) : base((ProgressBar)_uiElement) {
+            myProgressBar_pb = (ProgressBar)_uiElement;
         }
 
         #region properties
-        public IMyProgressBar setVerticalAlignment(MyVerticalAlignment myVerticalAlignment) {
-            myProgressBar_pb.VerticalAlignment = myVerticalAlignment.getVerticalAlignment();
+        /// <summary>
+        /// Set the vertical alignment.
+        /// </summary>
+        /// <param name="_myVerticalAlignment">A MyVerticalAlignment param.</param>
+        /// <typeparam name="MyVerticalAlignment"></typeparam>
+        /// <returns>IMyProgressBar</returns>
+        public IMyProgressBar setVerticalAlignment(MyVerticalAlignment _myVerticalAlignment) {
+            base.setVerticalAlignment(_myVerticalAlignment);
             return this;
         }
-
-        public IMyProgressBar setHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment) {
-            myProgressBar_pb.HorizontalAlignment = myHorizontalAlignment.getHorizontalAlignment();
+        /// <summary>
+        /// Set the horizontal alignment.
+        /// </summary>
+        /// <param name="_myHorizontalAlignment">A MyHorizontalAlignment param.</param>
+        /// <typeparam name="MyHorizontalAlignment"></typeparam>
+        /// <returns>IMyProgressBar\</returns>
+        public IMyProgressBar setHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment) {
+            base.setHorizontalAlignment(_myHorizontalAlignment);
             return this;
         }
-
-        public IMyProgressBar setFlowDirection(MyFlowDirection myFlowDirection) {
-            myProgressBar_pb.FlowDirection = myFlowDirection.getFlowDirection();
+        /// <summary>
+        /// Set the flow direction of progress bar.
+        /// </summary>
+        /// <param name="myFlowDirection">A MyFlowDirection param.</param>
+        /// <returns></returns>
+        public IMyProgressBar setFlowDirection(MyFlowDirection _myFlowDirection) {
+            myProgressBar_pb.FlowDirection = _myFlowDirection.getFlowDirection();
             return this;
         }
-
+        /// <summary>
+        /// Set the value of current progress.
+        /// </summary>
+        /// <param name="_value">A double value.</param>
+        /// <returns></returns>
         public IMyProgressBar setValue(double _value) {
             myProgressBar_pb.Value = _value;
             return this;
         }
+        /// <summary>
+        /// Get the value of current progress.
+        /// </summary>
+        /// <returns></returns>
         public double getValue() {
             return myProgressBar_pb.Value;
         }
-
+        /// <summary>
+        /// Set the max value of the progress bar.
+        /// </summary>
+        /// <param name="_maxValue"></param>
+        /// <returns></returns>
         public IMyProgressBar setMaxValue(double _maxValue) {
             myProgressBar_pb.Maximum = _maxValue;
             return this;
         }
+        /// <summary>
+        /// Get the max value of the progress bar.
+        /// </summary>
+        /// <returns></returns>
         public double getMaxValue() {
             return myProgressBar_pb.Maximum;
         }
-
+        /// <summary>
+        /// Set the progress bar mode.
+        /// Default is determinate mode.
+        /// </summary>
+        /// <param name="_indeterminate"></param>
+        /// <returns></returns>
         public IMyProgressBar setIndeterminate(bool _indeterminate) {
             myProgressBar_pb.IsIndeterminate = _indeterminate;
             return this;
         }
+        /// <summary>
+        /// Get the progress bar mode.
+        /// </summary>
+        /// <returns></returns>
         public bool isIndeterminate() {
             return myProgressBar_pb.IsIndeterminate;
         }
-        
-        public IMyProgressBar setColor(string _color) {
-            myProgressBar_pb.Foreground = mySolidColorBrush.setMyConverter(_color);
+        /// <summary>
+        /// Set the progress bar color.
+        /// </summary>
+        /// <param name="_color"></param>
+        /// <returns></returns>
+        public IMyProgressBar setColor(string _hexColor) {
+            base.setTextColor(_hexColor);
             return this;
         }
-        public IMyProgressBar setBackgroundColor(string _color) {
-            myProgressBar_pb.Background = mySolidColorBrush.setMyConverter(_color);
+        /// <summary>
+        /// Set the background color.
+        /// </summary>
+        /// <param name="_color"></param>
+        /// <returns></returns>
+        public IMyProgressBar setBackgroundColor(string _hexColor) {
+            base.setBackgroundColor(_hexColor);
             return this;
         }
-
+        /// <summary>
+        /// Set the width of the ProgressBar.
+        /// </summary>
+        /// <param name="_width">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyProgressBar</returns>
         public IMyProgressBar setWidth(int _width) {
-            myProgressBar_pb.Width = _width;
+            base.setWidth(_width);
             return this;
         }
+        /// <summary>
+        /// Get the width of the ProgressBar.
+        /// </summary>
+        /// <returns>int</returns>
         public int getWidth() {
-            return (int)myProgressBar_pb.Width;
+            return base.getWidth();
         }
-
+        /// <summary>
+        /// Set the ProgressBar max width.
+        /// </summary>
+        /// <param name="_maxWidth">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyProgressBar</returns>
         public IMyProgressBar setMaxWidth(int _maxWidth) {
-            myProgressBar_pb.MaxWidth = _maxWidth;
+            base.setMaxWidth(_maxWidth);
             return this;
         }
+        /// <summary>
+        /// Get the max width of the ProgressBar.
+        /// </summary>
+        /// <returns>int</returns>
         public int getMaxWidth() {
-            return (int)myProgressBar_pb.MaxWidth;
+            return base.getMaxWidth();
         }
-
+        /// <summary>
+        /// Set the ProgressBar height.
+        /// </summary>
+        /// <param name="_height">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyProgressBar</returns>
         public IMyProgressBar setHeight(int _height) {
-            myProgressBar_pb.Height = _height;
+            base.setHeight(_height);
             return this;
         }
+        /// <summary>
+        /// Get the height of the ProgressBar.
+        /// </summary>
+        /// <returns>int</returns>
         public int getHeight() {
-            return (int)myProgressBar_pb.Height;
+            return base.getHeight();
         }
-
+        /// <summary>
+        /// Set the ProgressBar max height.
+        /// </summary>
+        /// <param name="_maxHeight">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyProgressBar</returns>
         public IMyProgressBar setMaxHeight(int _maxHeight) {
-            myProgressBar_pb.MaxHeight = _maxHeight;
+            base.setMaxHeight(_maxHeight);
             return this;
         }
+        /// <summary>
+        /// Get the ProgressBar max height.
+        /// </summary>
+        /// <returns>int</returns>
         public int getMaxHeight() {
-            return (int)myProgressBar_pb.MaxHeight;
+            return base.getMaxHeight();
         }
-        
+        /// <summary>
+        /// Animate the progress bar.
+        /// </summary>
+        /// <param name="_duration">A double param. (in second)</param>
+        /// <param name="_value">A double param. (from 0 to 100)</param>
+        /// <returns></returns>
         public IMyProgressBar animate(double _duration, double _value) {
             myDuration.setMyDuration(_duration);
             myDoubleAnimation.setMyDoubleAnimation(_value, myDuration);
@@ -108,19 +196,65 @@ namespace MyFramework.ui_elements.progress_bar
             return this;
         }
 
+        /// <summary>
+        /// Set the background image.
+        /// </summary>
+        /// <remarks>Image build action must be set to Resource.</remarks>
+        /// <param name="_path">A string image path param.</param>
+        /// <typeparam name="string"></typeparam>
+        /// <returns>IMyProgressBar</returns>
+        public IMyProgressBar setBackgroundImage(string _path) {
+            base.setBackgroundImage(_path);
+            return this;
+        }
         #endregion
 
         #region event-handler
-
+        /// <summary>
+        /// Add onValueChanged listener.
+        /// </summary>
+        /// <param name="_controller"></param>
+        /// <param name="_methodName"></param>
+        /// <returns>IMyProgressBar</returns>
         public IMyProgressBar addOnValueChanged(IMyController _controller, string _methodName) {
             myProgressBar_pb.ValueChanged += delegate (object sender, RoutedPropertyChangedEventArgs<double> e) {
                 _controller.callMethod(_methodName);
             };
             return this;
         }
+        /// <summary>
+        /// Add onValueChanged listener.
+        /// </summary>
+        /// <param name="_view"></param>
+        /// <param name="_methodName"></param>
+        /// <returns>IMyProgressBar</returns>
+        public IMyProgressBar addOnValueChanged(IMyView _view, string _methodName) {
+            myProgressBar_pb.ValueChanged += delegate (object sender, RoutedPropertyChangedEventArgs<double> e) {
+                _view.callMethod(_methodName);
+            };
+            return this;
+        }
+        /// <summary>
+        /// Add onGotFocus listener.
+        /// </summary>
+        /// <param name="_controller"></param>
+        /// <param name="_methodName"></param>
+        /// <returns>IMyProgressBar</returns>
         public IMyProgressBar addOnGotFocus(IMyController _controller, string _methodName) {
             myProgressBar_pb.GotFocus += delegate (object sender, RoutedEventArgs e) {
                 _controller.callMethod(_methodName);
+            };
+            return this;
+        }
+        /// <summary>
+        /// Add onGotFocus listener.
+        /// </summary>
+        /// <param name="_view"></param>
+        /// <param name="_methodName"></param>
+        /// <returns></returns>
+        public IMyProgressBar addOnGotFocus(IMyView _view, string _methodName) {
+            myProgressBar_pb.GotFocus += delegate (object sender, RoutedEventArgs e) {
+                _view.callMethod(_methodName);
             };
             return this;
         }
@@ -128,11 +262,6 @@ namespace MyFramework.ui_elements.progress_bar
         #endregion
 
         #region set-field
-
-        public void setMySolidColorBrush(IMySolidColorBrush _mySolidColorBrush) {
-            mySolidColorBrush = _mySolidColorBrush;
-        }
-
         public void setMyDuration(IMyDuration _myDuration) {
             this.myDuration = _myDuration;
         }

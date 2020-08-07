@@ -5,17 +5,17 @@ namespace MyFramework.ui_elements.progress_bar
 {
     public interface IMyProgressBar
     {
-        IMyProgressBar setVerticalAlignment(MyVerticalAlignment myVerticalAlignment);
-        IMyProgressBar setHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment);
+        IMyProgressBar setVerticalAlignment(MyVerticalAlignment _myVerticalAlignment);
+        IMyProgressBar setHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment);
         IMyProgressBar setValue(double _value);
-        IMyProgressBar setFlowDirection(MyFlowDirection myFlowDirection);
+        IMyProgressBar setFlowDirection(MyFlowDirection _myFlowDirection);
         double getValue();
         IMyProgressBar setMaxValue(double _maxValue);
         double getMaxValue();
         IMyProgressBar setIndeterminate(bool _indeterminate);
         bool isIndeterminate();
-        IMyProgressBar setColor(string _color);
-        IMyProgressBar setBackgroundColor(string _color);
+        IMyProgressBar setColor(string _hexColor);
+        IMyProgressBar setBackgroundColor(string _hexColor);
         IMyProgressBar setWidth(int _width);
         int getWidth();
         IMyProgressBar setMaxWidth(int _maxWidth);
@@ -25,6 +25,10 @@ namespace MyFramework.ui_elements.progress_bar
         IMyProgressBar setMaxHeight(int _maxHeight);
         int getMaxHeight();
         IMyProgressBar animate(double _duration, double _value);
+        IMyProgressBar setBackgroundImage(string _path);
         IMyProgressBar addOnValueChanged(IMyController _controller, string _methodName);
+        IMyProgressBar addOnGotFocus(IMyController _controller, string _methodName);
+        IMyProgressBar addOnValueChanged(IMyView _view, string _methodName);
+        IMyProgressBar addOnGotFocus(IMyView _view, string _methodName);
     }
 }

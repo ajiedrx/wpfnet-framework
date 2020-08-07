@@ -9,7 +9,6 @@ namespace MyFramework.ui_elements.progress_bar
 {
     internal interface IMyProgressBarInjector
     {
-        void setMySolidColorBrush(IMySolidColorBrush _mySolidColorBrush);
         void setMyDuration(IMyDuration _myDuration);
         void setMyDoubleAnimation(IMyDoubleAnimation _myDoubleAnimation);
     }

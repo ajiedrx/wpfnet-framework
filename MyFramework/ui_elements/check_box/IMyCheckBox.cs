@@ -6,15 +6,15 @@ namespace MyFramework.ui_elements.check_box {
     {
         bool isChecked();
         IMyCheckBox setTooltip(string _tooltip);
-        IMyCheckBox setFontWeight(MyFontWeight myFontWeight);
-        IMyCheckBox setFontStretch(MyFontStretch myFontStretch);
+        IMyCheckBox setFontWeight(MyFontWeight _myFontWeight);
+        IMyCheckBox setFontStretch(MyFontStretch _myFontStretch);
 
         IMyCheckBox setFontSize(int _fontSize);
-        IMyCheckBox setFontStyle(MyFontStyle myFontStyle);
-        IMyCheckBox setTextVerticalAlignment(MyVerticalAlignment myVerticalAlignment);
-        IMyCheckBox setTextHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment);
-        IMyCheckBox setVerticalAlignment(MyVerticalAlignment myVerticalAlignment);
-        IMyCheckBox setHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment);
+        IMyCheckBox setFontStyle(MyFontStyle _myFontStyle);
+        IMyCheckBox setTextVerticalAlignment(MyVerticalAlignment _myVerticalAlignment);
+        IMyCheckBox setTextHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment);
+        IMyCheckBox setVerticalAlignment(MyVerticalAlignment _myVerticalAlignment);
+        IMyCheckBox setHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment);
 
         IMyCheckBox setText(string _text);
         IMyCheckBox setWidth(int _width);
@@ -26,8 +26,9 @@ namespace MyFramework.ui_elements.check_box {
         IMyCheckBox setMaxHeight(int _maxHeight);
         int getMaxHeight();
 
-        IMyCheckBox setTextColor(string _color);
-        IMyCheckBox setBackgroundColor(string _color);
+        IMyCheckBox setTextColor(string _hexColor);
+        IMyCheckBox setBackgroundColor(string _hexColor);
+        IMyCheckBox setBackgroundImage(string _path);
         IMyCheckBox addOnClick(IMyController _controller, string _methodName);
         IMyCheckBox addOnChecked(IMyController _controller, string _methodName);
 

@@ -2,95 +2,131 @@
 using System;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Media;
 
 namespace MyFramework.ui_elements.data_grid
 {
-    internal class MyDataGrid : IMyDataGrid
+    /// <summary>
+    /// The main DataGrid class.
+    /// Contains methods for DataGrid element manipulation.
+    /// </summary>
+    internal class MyDataGrid : MyUIElements, IMyDataGrid
     {
         private DataGrid myDataGrid_dg; 
-        internal MyDataGrid(Object _deployedDataGrid) {
-            myDataGrid_dg = (DataGrid)_deployedDataGrid;
+        internal MyDataGrid(object _uiElement) : base((DataGrid)_uiElement) {
+            myDataGrid_dg = (DataGrid)_uiElement;
             myDataGrid_dg.AutoGenerateColumns = false;
         }
 
-        #region properties
-        //doesntwork
-        public IMyDataGrid addItemSource<T>(MyList<T> _listItem) {
-            foreach(T item in _listItem) {
-                myDataGrid_dg.Items.Add(item);
-            }
-            return this;
-        }
-        //doesntwork
-        public IMyDataGrid addItem<T>(T _item) {
-            myDataGrid_dg.Items.Add(_item);
-            return this;
-        }
-        //deletesoon
-        public IMyDataGrid setColumnHeader(string _columnHeader, string _propertyName) {
-            DataGridTextColumn dtx = new DataGridTextColumn();
-            dtx.Header = _columnHeader;
-            dtx.Binding = new Binding(_propertyName);
-            myDataGrid_dg.Columns.Add(dtx);
-            return this;
-        }
-
-        public IMyDataGrid setColumnDataBinding<T>(MyList<string> _columnHeader, MyList<string> _propertyName, MyList<T> _data) {
-            for(int i = 0; i<_columnHeader.Count; i++) {
+        /// <summary>
+        /// Set column headers and property data binding.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="_columnHeaders"></param>
+        /// <param name="_propertyNames"></param>
+        /// <param name="_datas"></param>
+        /// <returns>IMyDataGrid</returns>
+        public IMyDataGrid setColumnDataBinding<T>(MyList<string> _columnHeaders, MyList<string> _propertyNames, MyList<T> _datas) {
+            for(int i = 0; i<_columnHeaders.Count; i++) {
                 DataGridTextColumn dtx = new DataGridTextColumn();
-                myDataGrid_dg.ItemsSource = _data;
-                dtx.Header = _columnHeader[i];
-                dtx.Binding = new Binding(_propertyName[i]);
+                myDataGrid_dg.ItemsSource = _datas;
+                dtx.Header = _columnHeaders[i];
+                dtx.Binding = new Binding(_propertyNames[i]);
                 myDataGrid_dg.Columns.Add(dtx);
             }
             return this;
         }
-
+        /// <summary>
+        /// Set the DataGrid height.
+        /// </summary>
+        /// <param name="_height">An int param.</param>
+        /// <typeparam name="int"></typeparam>
         public IMyDataGrid setHeight(int _height) {
             myDataGrid_dg.Height = _height;
             return this;
         }
+        /// <summary>
+        /// Get the height of the DataGrid.
+        /// </summary>
+        /// <returns>int</returns>
         public int getHeight() {
-            return (int)myDataGrid_dg.Height;
+            return base.getHeight();
         }
-
+        /// <summary>
+        /// Set the DataGrid max height.
+        /// </summary>
+        /// <param name="_maxHeight">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyDataGrid</returns>
         public IMyDataGrid setMaxHeight(int _maxHeight) {
-            myDataGrid_dg.MaxHeight = _maxHeight;
+            base.setMaxHeight(_maxHeight);
             return this;
         }
+        /// <summary>
+        /// Get the DataGrid max height.
+        /// </summary>
+        /// <returns>int</returns>
         public int getMaxHeight() {
-            return (int)myDataGrid_dg.MaxHeight;
+            return base.getMaxHeight();
         }
-
+        /// <summary>
+        /// Set the width of the DataGrid.
+        /// </summary>
+        /// <param name="_width">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyDataGrid</returns>
         public IMyDataGrid setWidth(int _width) {
-            myDataGrid_dg.Width = _width;
+            base.setWidth(_width);
             return this;
         }
+        /// <summary>
+        /// Get the width of the DataGrid.
+        /// </summary>
+        /// <returns>int</returns>
         public int getWidth() {
-            return (int)myDataGrid_dg.Width;
+            return base.getWidth();
         }
-
+        /// <summary>
+        /// Set the DataGrid max width.
+        /// </summary>
+        /// <param name="_maxWidth">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyDataGrid</returns>
         public IMyDataGrid setMaxWidth(int _maxWidth) {
-            myDataGrid_dg.MaxWidth = _maxWidth;
+            base.setMaxWidth(_maxWidth);
             return this;
         }
+        /// <summary>
+        /// Get the max width of the DataGrid.
+        /// </summary>
+        /// <returns>int</returns>
         public int getMaxWidth() {
-            return (int)myDataGrid_dg.MaxWidth;
+            return base.getMaxWidth();
         }
 
-        #region column-width
-
+        /// <summary>
+        /// Set all column width.
+        /// </summary>
+        /// <param name="_columnWidth">An int param.</param>
+        /// <returns>IMyDataGrid</returns>
         public IMyDataGrid setAllColumnWidth(int _columnWidth) {
             myDataGrid_dg.ColumnWidth = _columnWidth;
             return this;
         }
-
+        /// <summary>
+        /// Set all column width.
+        /// </summary>
+        /// <param name="_columnWidth">A DataGridLength param.</param>
+        /// <returns>IMyDataGrid</returns>
         public IMyDataGrid setAllColumnWidth(DataGridLength _columnWidth) {
             myDataGrid_dg.ColumnWidth = _columnWidth;
             return this;
         }
-
+        /// <summary>
+        /// Set one column width.
+        /// </summary>
+        /// <param name="_header">A string param.</param>
+        /// <param name="_width">An int param</param>
+        /// <returns>IMyDataGrid</returns>
         public IMyDataGrid setOneColumnWidth(string _header, int _width) {
             foreach (DataGridColumn column in myDataGrid_dg.Columns) {
                 if (_header.Equals(column.Header)) {
@@ -99,7 +135,12 @@ namespace MyFramework.ui_elements.data_grid
             }
             return this;
         }
-
+        /// <summary>
+        /// Set one column width.
+        /// </summary>
+        /// <param name="_header">A string param.</param>
+        /// <param name="_width">A DataGridLength param.</param>
+        /// <returns>IMyDataGrid</returns>
         public IMyDataGrid setOneColumnWidth(string _header, DataGridLength _width) {
             foreach (DataGridColumn column in myDataGrid_dg.Columns) {
                 if (_header.Equals(column.Header)) {
@@ -108,7 +149,12 @@ namespace MyFramework.ui_elements.data_grid
             }
             return this;
         }
-
+        /// <summary>
+        /// Set one column max width.
+        /// </summary>
+        /// <param name="_header">A string param.</param>
+        /// <param name="_width">An int param.</param>
+        /// <returns>IMyDataGrid</returns>
         public IMyDataGrid setOneColumnMaxWidth(string _header, int _width) {
             foreach (DataGridColumn column in myDataGrid_dg.Columns) {
                 if (_header.Equals(column.Header)) {
@@ -117,7 +163,12 @@ namespace MyFramework.ui_elements.data_grid
             }
             return this;
         }
-
+        /// <summary>
+        /// Set one column min width.
+        /// </summary>
+        /// <param name="_header">A string param.</param>
+        /// <param name="_width">An int param.</param>
+        /// <returns>IMyDataGrid</returns>
         public IMyDataGrid setOneColumnMinWidth(string _header, int _width) {
             foreach (DataGridColumn column in myDataGrid_dg.Columns) {
                 if (_header.Equals(column.Header)) {
@@ -126,15 +177,14 @@ namespace MyFramework.ui_elements.data_grid
             }
             return this;
         }
-
+        /// <summary>
+        /// Set all column max width.
+        /// </summary>
+        /// <param name="_columnMaxWidth">An int param.</param>
+        /// <returns>IMyDataGrid</returns>
         public IMyDataGrid setMaxColumnWidth(int _columnMaxWidth) {
             myDataGrid_dg.ColumnWidth = _columnMaxWidth; 
             return this;
         }
-
-        #endregion
-
-
-        #endregion
     }
 }

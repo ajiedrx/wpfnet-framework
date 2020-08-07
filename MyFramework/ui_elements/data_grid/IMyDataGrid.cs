@@ -4,10 +4,7 @@ using System.Windows.Controls;
 namespace MyFramework.ui_elements.data_grid {
     public interface IMyDataGrid
     {
-        IMyDataGrid addItemSource<T>(MyList<T> _listItem);
-        IMyDataGrid addItem<T>(T _item);
-        IMyDataGrid setColumnHeader(string _columnHeader, string _propertyName);
-        IMyDataGrid setColumnDataBinding<T>(MyList<string> _columnHeader, MyList<string> _propertyName, MyList<T> _data);
+        IMyDataGrid setColumnDataBinding<T>(MyList<string> _columnHeaders, MyList<string> _propertyNames, MyList<T> _datas);
         IMyDataGrid setHeight(int _height);
         int getHeight();
         IMyDataGrid setMaxHeight(int _maxHeight);

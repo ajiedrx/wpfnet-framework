@@ -1,159 +1,298 @@
 ﻿using MyFramework.basic;
 using MyFramework.enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace MyFramework.ui_elements.check_box {
-    internal class MyCheckBox : IMyCheckBox, IMyCheckBoxInjector
+
+    /// <summary>
+    /// The main CheckBox class.
+    /// Contains methods for CheckBox element manipulation.
+    /// </summary>
+    internal class MyCheckBox : MyUIElements, IMyCheckBox
     {
         private CheckBox myCheckBox_chk;
-        private IMySolidColorBrush mySolidColorBrush;
-        internal MyCheckBox(Object _deployedCheckBox) {
-            myCheckBox_chk = (CheckBox)_deployedCheckBox;
+        internal MyCheckBox(object _uiElement) : base((CheckBox)_uiElement){
+            myCheckBox_chk = (CheckBox)_uiElement;
         }
 
         #region properties
-
+        /// <summary>
+        /// Get the status of CheckBox
+        /// </summary>
+        /// <returns>bool</returns>
         public bool isChecked() {
             return (bool)myCheckBox_chk.IsChecked;
         }
-
+        /// <summary>
+        /// Set the tooltip text.
+        /// </summary>
+        /// <param name="_tooltip">A string param.</param>
+        /// <typeparam name="string"></typeparam>
+        /// <returns>
+        /// IMyCheckBox
+        /// </returns>
         public IMyCheckBox setTooltip(string _tooltip) {
-            myCheckBox_chk.ToolTip = _tooltip;
+            base.setTooltip(_tooltip);
             return this;
         }
-
-        public IMyCheckBox setFontWeight(MyFontWeight myFontWeight) {
-            myCheckBox_chk.FontWeight = myFontWeight.getFontWeight();
+        /// <summary>
+        /// Set the font weight.
+        /// </summary>
+        /// <param name="_myFontWeight"></param>
+        /// <typeparam name="MyFontWeight">A MyFontWeight param.</typeparam>
+        /// <returns>IMyCheckBox</returns>
+        public IMyCheckBox setFontWeight(MyFontWeight _myFontWeight) {
+            base.setFontWeight(_myFontWeight);
             return this;
         }
-
-        public IMyCheckBox setFontStretch(MyFontStretch myFontStretch) {
-            myCheckBox_chk.FontStretch = myFontStretch.getFontStretch();
+        /// <summary>
+        /// Set the font stretch.
+        /// </summary>
+        /// <param name="_myFontStretch">A MyFontStretch param.</param>
+        /// <typeparam name="MyFontStretch"></typeparam>
+        /// <returns>IMyCheckBox</returns>
+        public IMyCheckBox setFontStretch(MyFontStretch _myFontStretch) {
+            base.setFontStretch(_myFontStretch);
             return this;
         }
-
+        /// <summary>
+        /// Set the font size.
+        /// </summary>
+        /// <param name="_fontSize">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyCheckBox</returns>
         public IMyCheckBox setFontSize(int _fontSize) {
-            myCheckBox_chk.FontSize = _fontSize;
+            base.setFontSize(_fontSize);
             return this;
         }
-
-        public IMyCheckBox setFontStyle(MyFontStyle myFontStyle) {
-            myCheckBox_chk.FontStyle = myFontStyle.getFontStyle();
+        /// <summary>
+        /// Set the font style.
+        /// </summary>
+        /// <param name="_myFontStyle">A MyFontStyle param.</param>
+        /// <typeparam name="MyFontStyle"></typeparam>
+        /// <returns>IMyCheckBox</returns>
+        public IMyCheckBox setFontStyle(MyFontStyle _myFontStyle) {
+            base.setFontStyle(_myFontStyle);
             return this;
         }
-
-        public IMyCheckBox setTextVerticalAlignment(MyVerticalAlignment myVerticalAlignment) {
-            myCheckBox_chk.VerticalContentAlignment = myVerticalAlignment.getVerticalAlignment();
+        /// <summary>
+        /// Set the text vertical alignment.
+        /// </summary>
+        /// <param name="_myVerticalAlignment">A MyVerticalAlignment param.</param>
+        /// <typeparam name="MyVerticalAlignment"></typeparam>
+        /// <returns>IMyCheckBox</returns>
+        public IMyCheckBox setTextVerticalAlignment(MyVerticalAlignment _myVerticalAlignment) {
+            base.setTextVerticalAlignment(_myVerticalAlignment);
             return this;
         }
-
-        public IMyCheckBox setTextHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment) {
-            myCheckBox_chk.HorizontalContentAlignment = myHorizontalAlignment.getHorizontalAlignment();
+        /// <summary>
+        /// Set the text horizontal alignment.
+        /// </summary>
+        /// <param name="_myHorizontalAlignment">A MyHorizontalAlignment param.</param>
+        /// <typeparam name="MyHorizontalAlignment"></typeparam>
+        /// <returns>IMyCheckBox</returns>
+        public IMyCheckBox setTextHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment) {
+            base.setTextHorizontalAlignment(_myHorizontalAlignment);
             return this;
         }
-
-        public IMyCheckBox setVerticalAlignment(MyVerticalAlignment myVerticalAlignment) {
-            myCheckBox_chk.VerticalAlignment = myVerticalAlignment.getVerticalAlignment();
+        /// <summary>
+        /// Set the vertical alignment.
+        /// </summary>
+        /// <param name="_myVerticalAlignment">A MyVerticalAlignment param.</param>
+        /// <typeparam name="MyVerticalAlignment"></typeparam>
+        /// <returns>IMyCheckBox</returns>
+        public IMyCheckBox setVerticalAlignment(MyVerticalAlignment _myVerticalAlignment) {
+            base.setVerticalAlignment(_myVerticalAlignment);
             return this;
         }
-
-        public IMyCheckBox setHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment) {
-            myCheckBox_chk.HorizontalAlignment = myHorizontalAlignment.getHorizontalAlignment();
+        /// <summary>
+        /// Set the horizontal alignment.
+        /// </summary>
+        /// <param name="_myHorizontalAlignment">A MyHorizontalAlignment param.</param>
+        /// <typeparam name="MyHorizontalAlignment"></typeparam>
+        /// <returns>IMyCheckBox</returns>
+        public IMyCheckBox setHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment) {
+            base.setHorizontalAlignment(_myHorizontalAlignment);
             return this;
         }
-
+        /// <summary>
+        /// Set the text on the CheckBox.
+        /// </summary>
+        /// <param name="_text">A string param.</param>
+        /// <typeparam name="string"></typeparam>
+        /// <returns>IMyCheckBox</returns>
         public IMyCheckBox setText(string _text) {
             myCheckBox_chk.Content = _text;
             return this;
         }
-        
+        /// <summary>
+        /// Set the width of the CheckBox.
+        /// </summary>
+        /// <param name="_width">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyCheckBox</returns>
         public IMyCheckBox setWidth(int _width)
         {
-            myCheckBox_chk.Width = _width;
+            base.setWidth(_width);
             return this;
         }
+        /// <summary>
+        /// Get the width of the CheckBox.
+        /// </summary>
+        /// <returns>int</returns>
         public int getWidth() {
-            return (int)myCheckBox_chk.Width;
+            return base.getWidth();
         }
-
+        /// <summary>
+        /// Set the CheckBox max width.
+        /// </summary>
+        /// <param name="_maxWidth">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyCheckBox</returns>
         public IMyCheckBox setMaxWidth(int _maxWidth) {
-            myCheckBox_chk.MaxWidth = _maxWidth;
+            base.setMaxWidth(_maxWidth);
             return this;
         }
+        /// <summary>
+        /// Get the max width of the CheckBox.
+        /// </summary>
+        /// <returns>int</returns>
         public int getMaxWidth() {
-            return (int)myCheckBox_chk.MaxWidth;
+            return base.getMaxWidth();
         }
-
+        /// <summary>
+        /// Set the CheckBox height.
+        /// </summary>
+        /// <param name="_height">An int param.</param>
+        /// <typeparam name="int"></typeparam>
         public IMyCheckBox setHeight(int _height) {
-            myCheckBox_chk.Height = _height;
+            base.setHeight(_height);
             return this;
         }
+        /// <summary>
+        /// Get the height of the CheckBox.
+        /// </summary>
+        /// <returns>int</returns>
         public int getHeight() {
-            return (int)myCheckBox_chk.Height;
+            return base.getHeight();
         }
-
+        /// <summary>
+        /// Set the CheckBox max height.
+        /// </summary>
+        /// <param name="_maxHeight">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyCheckBox</returns>
         public IMyCheckBox setMaxHeight(int _maxHeight) {
-            myCheckBox_chk.MaxHeight = _maxHeight;
+            base.setMaxHeight(_maxHeight);
             return this;
         }
+        /// <summary>
+        /// Get the CheckBox max height.
+        /// </summary>
+        /// <returns>int</returns>
         public int getMaxHeight() {
-            return (int)myCheckBox_chk.MaxHeight;
+            return base.getMaxHeight();
         }
-
-        public IMyCheckBox setBackgroundColor(string _color) {
-            myCheckBox_chk.Background = mySolidColorBrush.setMyConverter(_color);
+        /// <summary>
+        /// Set the CheckBox background color.
+        /// </summary>
+        /// <param name="_color">A string param.</param>
+        /// <typeparam name="string"></typeparam>
+        /// <returns>IMyCheckBox</returns>
+        public IMyCheckBox setBackgroundColor(string _hexColor) {
+            base.setBackgroundColor(_hexColor);
             return this;
         }
-
-        public IMyCheckBox setTextColor(string _color) {
-            myCheckBox_chk.Foreground = mySolidColorBrush.setMyConverter(_color);
+        /// <summary>
+        /// Set the CheckBox text color.
+        /// </summary>
+        /// <param name="_color">A string hex param.</param>
+        /// <typeparam name="string"></typeparam>
+        /// <returns>IMyCheckBox</returns>
+        public IMyCheckBox setTextColor(string _hexColor) {
+            base.setTextColor(_hexColor);
+            return this;
+        }
+        /// <summary>
+        /// Set the CheckBox background image.
+        /// </summary>
+        /// <param name="_path">A string param.</param>
+        /// <returns>IMyCheckBox</returns>
+        public IMyCheckBox setBackgroundImage(string _path) {
+            base.setBackgroundImage(_path);
             return this;
         }
 
         #endregion
 
         #region event-handler
-
+        /// <summary>
+        /// Add onClick listener.
+        /// </summary>
+        /// <param name="_controller"></param>
+        /// <param name="_methodName"></param>
+        /// <returns>IMyCheckBox</returns>
         public IMyCheckBox addOnClick(IMyController _controller, string _methodName) {
             myCheckBox_chk.Click += delegate (object sender, System.Windows.RoutedEventArgs e) {
                 _controller.callMethod(_methodName);
             };
             return this;
         }
-
+        /// <summary>
+        /// Add onChecked listener.
+        /// </summary>
+        /// <param name="_controller"></param>
+        /// <param name="_methodName"></param>
+        /// <returns>IMyCheckBox</returns>
         public IMyCheckBox addOnChecked(IMyController _controller, string _methodName) {
             myCheckBox_chk.Checked += delegate (object sender, System.Windows.RoutedEventArgs e) {
                 _controller.callMethod(_methodName);
             };
             return this;
         }
-
+        /// <summary>
+        /// Add onUnchecked listener.
+        /// </summary>
+        /// <param name="_controller"></param>
+        /// <param name="_methodName"></param>
+        /// <returns>IMyCheckBox</returns>
         public IMyCheckBox addOnUnchecked(IMyController _controller, string _methodName) {
             myCheckBox_chk.Unchecked += delegate (object sender, System.Windows.RoutedEventArgs e) {
                 _controller.callMethod(_methodName);
             };
             return this;
         }
-
+        /// <summary>
+        /// OVERLOAD Add onClick listener.
+        /// </summary>
+        /// <param name="_view"></param>
+        /// <param name="_methodName"></param>
+        /// <returns>IMyCheckBox</returns>
         public IMyCheckBox addOnClick(IMyView _view, string _methodName) {
             myCheckBox_chk.Click += delegate (object sender, System.Windows.RoutedEventArgs e) {
                 _view.callMethod(_methodName);
             };
             return this;
         }
-
+        /// <summary>
+        /// OVERLOAD Add onChecked listener.
+        /// </summary>
+        /// <param name="_view"></param>
+        /// <param name="_methodName"></param>
+        /// <returns>IMyCheckBox</returns>
         public IMyCheckBox addOnChecked(IMyView _view, string _methodName) {
             myCheckBox_chk.Checked += delegate (object sender, System.Windows.RoutedEventArgs e) {
                 _view.callMethod(_methodName);
             };
             return this;
         }
-
+        /// <summary>
+        /// OVERLOAD Add onUnchecked listener.
+        /// </summary>
+        /// <param name="_view"></param>
+        /// <param name="_methodName"></param>
+        /// <returns>IMyCheckBox</returns>
         public IMyCheckBox addOnUnchecked(IMyView _view, string _methodName) {
             myCheckBox_chk.Unchecked += delegate (object sender, System.Windows.RoutedEventArgs e) {
                 _view.callMethod(_methodName);
@@ -162,15 +301,5 @@ namespace MyFramework.ui_elements.check_box {
         }
 
         #endregion
-
-        #region set-field
-
-        public void setMySolidColorBrush(IMySolidColorBrush _mySolidColorBrush) {
-            mySolidColorBrush = _mySolidColorBrush;
-        }
-
-
-        #endregion
-
     }
 }

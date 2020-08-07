@@ -11,15 +11,15 @@ namespace MyFramework.ui_elements.button {
     public interface IMyButton
     {
         IMyButton setTooltip(string _tooltip);
-        IMyButton setFontWeight(MyFontWeight myFontWeight);
-        IMyButton setFontStretch(MyFontStretch myFontStretch);
+        IMyButton setFontWeight(MyFontWeight _myFontWeight);
+        IMyButton setFontStretch(MyFontStretch _myFontStretch);
 
         IMyButton setFontSize(int _fontSize);
-        IMyButton setFontStyle(MyFontStyle myFontStyle);
-        IMyButton setTextVerticalAlignment(MyVerticalAlignment myVerticalAlignment);
-        IMyButton setTextHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment);
-        IMyButton setVerticalAlignment(MyVerticalAlignment myVerticalAlignment);
-        IMyButton setHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment);
+        IMyButton setFontStyle(MyFontStyle _myFontStyle);
+        IMyButton setTextVerticalAlignment(MyVerticalAlignment _myVerticalAlignment);
+        IMyButton setTextHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment);
+        IMyButton setVerticalAlignment(MyVerticalAlignment _myVerticalAlignment);
+        IMyButton setHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment);
 
         IMyButton setText(string _text);
 
@@ -32,18 +32,18 @@ namespace MyFramework.ui_elements.button {
         IMyButton setMaxHeight(int _maxHeight);
         int getMaxHeight();
 
-        IMyButton setBackgroundColor(string _color);
+        IMyButton setBackgroundColor(string _hexColor);
 
         IMyButton setBackgroundImage(string _path);
 
-        IMyButton setTextColor(string _color);
+        IMyButton setTextColor(string _hexColor);
         IMyButton addOnClick(IMyController _controller, string _methodName);
         IMyButton addOnClick(IMyView _view, string _methodName);
         IMyButton addOnMouseDown(IMyController _controller, string _methodName);
         IMyButton addOnMouseUp(IMyController _controller, string _methodName);
 
         IMyButton addOnMouseHover(IMyController _controller, string _methodName);
-        IMyButton addOnMouseHover(IMyView _controller, string _methodName);
+        IMyButton addOnMouseHover(IMyView _view, string _methodName);
 
     }
 }

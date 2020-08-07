@@ -1,22 +1,32 @@
 ﻿using MyFramework.basic;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyFramework.ui_elements.combo_box {
+    /// <summary>
+    /// The CheckBox element builder class.
+    /// </summary>
+    /// <remarks>Below is an usage example</remarks>
+    /// <example>
+    /// <code>
+    /// IMyComboBox comboBox;
+    /// BuilderCheckBox builderComboBox = new BuilderComboBox();
+    /// comboBox = builderComboBox
+    /// .activate(this, "comboBox_cbx")
+    /// .setText("Test")
+    /// .addOnSelectionChanged(this, "onCheckedMethodName");
+    /// </code>
+    /// </example>
     public class BuilderComboBox
     {
-        private IMySolidColorBrush mySolidColorBrush = new MySolidColorBrush();
         public BuilderComboBox() { }
-
+        /// <summary>
+        /// Method for getting the UI Element instance.
+        /// </summary>
+        /// <param name="_container"></param>
+        /// <param name="_instanceName"></param>
+        /// <returns>IMyButton</returns>
         public IMyComboBox activate(IMyContainer _container, String _instanceName) {
             IMyComboBox comboBox = new MyComboBox(_container.getComponentByName(_instanceName));
-
-            IMyComboBoxInjector comboBoxInjector = (IMyComboBoxInjector)comboBox;
-            comboBoxInjector.setMySolidColorBrush(mySolidColorBrush);
-
             return comboBox;
         }
     }

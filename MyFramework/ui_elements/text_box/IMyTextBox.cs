@@ -35,8 +35,9 @@ namespace MyFramework.ui_elements.text_box
         IMyTextBox setMaxLength(int _maxLength);
         IMyTextBox setInputValidation(Validator _validator);
         bool getInputValidation();
-        IMyTextBox setBackgroundColor(string _color);
-        IMyTextBox setTextColor(string _color);
+        IMyTextBox setBackgroundColor(string _hexColor);
+        IMyTextBox setTextColor(string _hexColor);
+        IMyTextBox setBackgroundImage(string _path);
         IMyTextBox addOnTextChanged(IMyController _controller, string _methodName);
         IMyTextBox addOnGotFocus(IMyController _controller, string _methodName);
         IMyTextBox addOnPreviewMouseDown(IMyController _controller, string _methodName);

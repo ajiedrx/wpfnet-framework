@@ -10,19 +10,20 @@ namespace MyFramework.ui_elements.combo_box {
     public interface IMyComboBox
     {
         IMyComboBox setTooltip(string _tooltip);
-        IMyComboBox setFontWeight(MyFontWeight myFontWeight);
-        IMyComboBox setFontStretch(MyFontStretch myFontStretch);
+        IMyComboBox setFontWeight(MyFontWeight _myFontWeight);
+        IMyComboBox setFontStretch(MyFontStretch _myFontStretch);
         IMyComboBox setFontSize(int _fontSize);
-        IMyComboBox setFontStyle(MyFontStyle myFontStyle);
-        IMyComboBox setVerticalAlignment(MyVerticalAlignment myVerticalAlignment);
-        IMyComboBox setHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment);
+        IMyComboBox setFontStyle(MyFontStyle _myFontStyle);
+        IMyComboBox setVerticalAlignment(MyVerticalAlignment _myVerticalAlignment);
+        IMyComboBox setHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment);
         IMyComboBox setSelectedItem(string _itemName);
-        string getSelectedItem();
+        string getSelectedString();
+        object getSelectedItem();
         IMyComboBox setSelectedItemIndex(int _itemIndex);
         int getSelectedItemIndex();
         bool isDropDownOpen();
-        IMyComboBox addItem(string _item);
-        IMyComboBox setItemList(MyList<string> _listOfItem);
+        IMyComboBox addItem<T>(T _item);
+        IMyComboBox addItems<T>(MyList<T> _item);
 
         IMyComboBox setHeight(int _height);
         int getHeight();
@@ -32,8 +33,8 @@ namespace MyFramework.ui_elements.combo_box {
         int getWidth();
         IMyComboBox setMaxWidth(int _maxWidth);
         int getMaxWidth();
-        IMyComboBox setBackgroundColor(string _color);
-        IMyComboBox setTextColor(string _color);
+        IMyComboBox setBackgroundColor(string _hexColor);
+        IMyComboBox setTextColor(string _hexColor);
         IMyComboBox addOnDropDownOpened(IMyController _controller, string _methodName);
         IMyComboBox addOnDropDownClosed(IMyController _controller, string _methodName);
         IMyComboBox addOnSelectionChanged(IMyController _controller, string _methodName);

@@ -16,8 +16,8 @@ namespace MyFramework.basic {
             return this.solidColorBrush;
         }
 
-        public SolidColorBrush setMyConverter(String _color) {
-            this.solidColorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(_color);
+        public SolidColorBrush convertFromHex(string _hexColor) {
+            this.solidColorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(_hexColor);
             return this.solidColorBrush;
         }
 

@@ -1,117 +1,249 @@
 ﻿using MyFramework.basic;
 using MyFramework.enums;
 using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Resources;
 
 namespace MyFramework.ui_elements.text_block {
-    internal class MyTextBlock : IMyTextBlock, IMyTextBlockInjector
+    internal class MyTextBlock : MyUIElements, IMyTextBlock
     {
         private TextBlock myTextBlock_tb;
         private IMySolidColorBrush mySolidColorBrush;
-        internal MyTextBlock(Object _deployedTextBlock) {
-            myTextBlock_tb = (TextBlock)_deployedTextBlock;
+        internal MyTextBlock(object _uiElement) : base((TextBlock)_uiElement) {
+            myTextBlock_tb = (TextBlock)_uiElement;
         }
 
         #region properties
+        /// <summary>
+        /// Set the tooltip text.
+        /// </summary>
+        /// <param name="_tooltip">A string param.</param>
+        /// <typeparam name="string"></typeparam>
+        /// <returns>
+        /// IMyTextBlock
+        /// </returns>
         public IMyTextBlock setTooltip(string _tooltip) {
-            myTextBlock_tb.ToolTip = _tooltip;
+            base.setTooltip(_tooltip);
             return this;
         }
-
-        public IMyTextBlock setFontWeight(MyFontWeight myFontWeight) {
-            myTextBlock_tb.FontWeight = myFontWeight.getFontWeight();
+        /// <summary>
+        /// Set the font weight.
+        /// </summary>
+        /// <param name="_myFontWeight"></param>
+        /// <typeparam name="MyFontWeight">A MyFontWeight param.</typeparam>
+        /// <returns>IMyTextBlock</returns>
+        public IMyTextBlock setFontWeight(MyFontWeight _myFontWeight) {
+            base.setFontWeight(_myFontWeight);
             return this;
         }
-
-        public IMyTextBlock setFontStretch(MyFontStretch myFontStretch) {
-            myTextBlock_tb.FontStretch = myFontStretch.getFontStretch();
+        /// <summary>
+        /// Set the font stretch.
+        /// </summary>
+        /// <param name="_myFontStretch">A MyFontStretch param.</param>
+        /// <typeparam name="MyFontStretch"></typeparam>
+        /// <returns>IMyTextBlock</returns>
+        public IMyTextBlock setFontStretch(MyFontStretch _myFontStretch) {
+            base.setFontStretch(_myFontStretch);
             return this;
         }
-
+        /// <summary>
+        /// Set the font size.
+        /// </summary>
+        /// <param name="_fontSize">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyTextBlock</returns>
         public IMyTextBlock setFontSize(int _fontSize) {
-            myTextBlock_tb.FontSize = _fontSize;
+            base.setFontSize(_fontSize);
             return this;
         }
-
-        public IMyTextBlock setFontStyle(MyFontStyle myFontStyle) {
-            myTextBlock_tb.FontStyle = myFontStyle.getFontStyle();
+        /// <summary>
+        /// Set the font style.
+        /// </summary>
+        /// <param name="_myFontStyle">A MyFontStyle param.</param>
+        /// <typeparam name="MyFontStyle"></typeparam>
+        /// <returns>IMyTextBlock</returns>
+        public IMyTextBlock setFontStyle(MyFontStyle _myFontStyle) {
+            base.setFontStyle(_myFontStyle);
             return this;
         }
-        
-        public IMyTextBlock setTextAlignment(MyTextAlignment myTextAlignment) {
-            myTextBlock_tb.TextAlignment = myTextAlignment.getTextAlignment();
+        /// <summary>
+        /// Set the text alignment.
+        /// </summary>
+        /// <param name="_myTextAlignment">A MyVerticalAlignment param.</param>
+        /// <typeparam name="MyTextAlignment"></typeparam>
+        /// <returns>IMyTextBlock</returns>
+        public IMyTextBlock setTextAlignment(MyTextAlignment _myTextAlignment) {
+            myTextBlock_tb.TextAlignment = _myTextAlignment.getTextAlignment();
             return this;
         }
-
-        public IMyTextBlock setTextWrapping(MyTextWrapping myTextWrapping) {
-            myTextBlock_tb.TextWrapping = myTextWrapping.getTextWrapping();
+        /// <summary>
+        /// Set the text wrapping
+        /// </summary>
+        /// <param name="myTextWrapping">A MyTextWrapping param.</param>
+        /// <returns></returns>
+        public IMyTextBlock setTextWrapping(MyTextWrapping _myTextWrapping) {
+            myTextBlock_tb.TextWrapping = _myTextWrapping.getTextWrapping();
             return this;
         }
-
-        public IMyTextBlock setVerticalAlignment(MyVerticalAlignment myVerticalAlignment) {
-            myTextBlock_tb.VerticalAlignment = myVerticalAlignment.getVerticalAlignment();
+        /// <summary>
+        /// Set the vertical alignment.
+        /// </summary>
+        /// <param name="_myVerticalAlignment">A MyVerticalAlignment param.</param>
+        /// <typeparam name="MyVerticalAlignment"></typeparam>
+        /// <returns>IMyTextBlock</returns>
+        public IMyTextBlock setVerticalAlignment(MyVerticalAlignment _myVerticalAlignment) {
+            base.setTextVerticalAlignment(_myVerticalAlignment);
             return this;
         }
-        
-        public IMyTextBlock setHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment) {
-            myTextBlock_tb.HorizontalAlignment = myHorizontalAlignment.getHorizontalAlignment();
+        /// <summary>
+        /// Set the horizontal alignment.
+        /// </summary>
+        /// <param name="_myHorizontalAlignment">A MyHorizontalAlignment param.</param>
+        /// <typeparam name="MyHorizontalAlignment"></typeparam>
+        /// <returns>IMyTextBlock</returns>
+        public IMyTextBlock setHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment) {
+            base.setHorizontalAlignment(_myHorizontalAlignment);
             return this;
         }
-
+        /// <summary>
+        /// Set the width of the TextBlock.
+        /// </summary>
+        /// <param name="_width">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyTextBlock</returns>
         public IMyTextBlock setWidth(int _width) {
-            myTextBlock_tb.Width = _width;
+            base.setWidth(_width);
             return this;
         }
+        /// <summary>
+        /// Get the width of the TextBlock.
+        /// </summary>
+        /// <returns>int</returns>
         public int getWidth() {
-            return (int)myTextBlock_tb.Width;
+            return base.getWidth();
         }
-
+        /// <summary>
+        /// Set the TextBlock max width.
+        /// </summary>
+        /// <param name="_maxWidth">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyTextBlock</returns>
         public IMyTextBlock setMaxWidth(int _maxWidth) {
-            myTextBlock_tb.MaxWidth = _maxWidth;
+            base.setMaxWidth(_maxWidth);
             return this;
         }
+        /// <summary>
+        /// Get the max width of the TextBlock.
+        /// </summary>
+        /// <returns>int</returns>
         public int getMaxWidth() {
-            return (int)myTextBlock_tb.MaxWidth;
+            return base.getMaxWidth();
         }
-
+        /// <summary>
+        /// Set the TextBlock height.
+        /// </summary>
+        /// <param name="_height">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyTextBlock</returns>
         public IMyTextBlock setHeight(int _height) {
-            myTextBlock_tb.Height = _height;
+            base.setHeight(_height);
             return this;
         }
+        /// <summary>
+        /// Get the height of the TextBlock.
+        /// </summary>
+        /// <returns>int</returns>
         public int getHeight() {
-            return (int)myTextBlock_tb.Height;
+            return base.getHeight();
         }
-
+        /// <summary>
+        /// Set the TextBlock max height.
+        /// </summary>
+        /// <param name="_maxHeight">An int param.</param>
+        /// <typeparam name="int"></typeparam>
+        /// <returns>IMyTextBlock</returns>
         public IMyTextBlock setMaxHeight(int _maxHeight) {
-            myTextBlock_tb.MaxHeight = _maxHeight;
+            base.setMaxHeight(_maxHeight);
             return this;
         }
+        /// <summary>
+        /// Get the TextBlock max height.
+        /// </summary>
+        /// <returns>int</returns>
         public int getMaxHeight() {
-            return (int)myTextBlock_tb.MaxHeight;
+            return base.getMaxHeight();
         }
-
+        /// <summary>
+        /// Set the text on the TextBlock.
+        /// </summary>
+        /// <param name="_text">A string param.</param>
+        /// <typeparam name="string"></typeparam>
+        /// <returns>IMyTextBlock</returns>
         public IMyTextBlock setText(string _text) {
             myTextBlock_tb.Text = _text;
             return this;
         }
-
-        public IMyTextBlock setBackgroundColor(string _color) {
-            myTextBlock_tb.Background = mySolidColorBrush.setMyConverter(_color);
+        /// <summary>
+        /// Set the TextBlock background color.
+        /// </summary>
+        /// <param name="_color">A string param.</param>
+        /// <typeparam name="string"></typeparam>
+        /// <returns>IMyTextBlock</returns>
+        public IMyTextBlock setBackgroundColor(string _hexColor) {
+            base.setBackgroundColor(_hexColor);
+            return this;
+        }
+        /// <summary>
+        /// Set the TextBlock text color.
+        /// </summary>
+        /// <param name="_color">A string hex param.</param>
+        /// <typeparam name="string"></typeparam>
+        /// <returns>IMyTextBlock</returns>
+        public IMyTextBlock setTextColor(string _hexColor) {
+            base.setTextColor(_hexColor);
             return this;
         }
 
-        public IMyTextBlock setTextColor(string _color) {
-            myTextBlock_tb.Foreground = mySolidColorBrush.setMyConverter(_color);
+        /// <summary>
+        /// Set the background image.
+        /// </summary>
+        /// <remarks>Image build action must be set to Resource.</remarks>
+        /// <param name="_path">A string image path param.</param>
+        /// <typeparam name="string"></typeparam>
+        /// <returns>IMyTextBlock</returns>
+        public IMyTextBlock setBackgroundImage(string _path) {
+            base.setBackgroundImage(_path);
             return this;
         }
 
         #endregion
 
         #region event-handler
+        /// <summary>
+        /// Add onPreviewMouseDown listener.
+        /// </summary>
+        /// <param name="_controller"></param>
+        /// <param name="_methodName"></param>
+        /// <returns>IMyTextBlock</returns>
         public IMyTextBlock addOnPreviewMouseDown(IMyController _controller, string _methodName) {
             myTextBlock_tb.PreviewMouseDown += delegate (object sender, MouseButtonEventArgs e) {
                 _controller.callMethod(_methodName);
+            };
+            return this;
+        }
+        /// <summary>
+        /// Add onPreviewMouseDown listener.
+        /// </summary>
+        /// <param name="_controller"></param>
+        /// <param name="_methodName"></param>
+        /// <returns>IMyTextBlock</returns>
+        public IMyTextBlock addOnPreviewMouseDown(IMyView _view, string _methodName) {
+            myTextBlock_tb.PreviewMouseDown += delegate (object sender, MouseButtonEventArgs e) {
+                _view.callMethod(_methodName);
             };
             return this;
         }

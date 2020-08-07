@@ -27,8 +27,8 @@ namespace MyFramework.ui_elements.date_picker
         int getHeight();
         IMyDatePicker setMaxHeight(int _maxHeight);
         int getMaxHeight();
-        IMyDatePicker setBackgroundColor(string _color);
-        IMyDatePicker setTextColor(string _color);
+        IMyDatePicker setBackgroundColor(string _hexColor);
+        IMyDatePicker setTextColor(string _hexColor);
 
         IMyDatePicker addSelectedDateChanged(IMyController _controller, string _methodName);
 

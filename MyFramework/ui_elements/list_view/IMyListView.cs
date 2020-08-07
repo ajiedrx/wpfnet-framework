@@ -9,16 +9,17 @@ namespace MyFramework.ui_elements.list_view
 {
     public interface IMyListView
     {
-        IMyListView addItem(object _item);
-        IMyListView addItems(MyList<object> _items);
-        IMyListView addGridViewColumns(MyList<string> _headers, MyList<string> _propertyNames);
+        IMyListView addItem<T>(T _item);
         IMyListView addItems<T>(MyList<T> _items);
-        string getSelectedItem();
+        IMyListView addGridViewColumns(MyList<string> _headers, MyList<string> _propertyNames);
+       
+        object getSelectedItem();
         int getNumberOfItems();
         IMyListView setHeight(int _height);
         IMyListView setWidth(int _width);
-        IMyListView setBackgroundColor(string _color);
-        IMyListView setTextColor(string _color);
+        IMyListView setBackgroundColor(string _hexColor);
+        IMyListView setBackgroundImage(string _path);
+        IMyListView setTextColor(string _hexColor);
         IMyListView addOnSelectionChanged(IMyView _view, string _methodName);
         IMyListView addOnSelectionChanged(IMyController _controller, string _methodName);
     }

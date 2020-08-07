@@ -6,13 +6,13 @@ namespace MyFramework.ui_elements.text_block
     public interface IMyTextBlock
     {
         IMyTextBlock setTooltip(string _tooltip);
-        IMyTextBlock setFontWeight(MyFontWeight myFontWeight);
-        IMyTextBlock setFontStretch(MyFontStretch myFontStretch);
-        IMyTextBlock setFontStyle(MyFontStyle myFontStyle);
-        IMyTextBlock setTextAlignment(MyTextAlignment myTextAlignment);
-        IMyTextBlock setTextWrapping(MyTextWrapping myTextWrapping);
-        IMyTextBlock setVerticalAlignment(MyVerticalAlignment myVerticalAlignment);
-        IMyTextBlock setHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment);
+        IMyTextBlock setFontWeight(MyFontWeight _myFontWeight);
+        IMyTextBlock setFontStretch(MyFontStretch _myFontStretch);
+        IMyTextBlock setFontStyle(MyFontStyle _myFontStyle);
+        IMyTextBlock setTextAlignment(MyTextAlignment _myTextAlignment);
+        IMyTextBlock setTextWrapping(MyTextWrapping _myTextWrapping);
+        IMyTextBlock setVerticalAlignment(MyVerticalAlignment _myVerticalAlignment);
+        IMyTextBlock setHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment);
 
         IMyTextBlock setWidth(int _width);
         int getWidth();
@@ -24,8 +24,10 @@ namespace MyFramework.ui_elements.text_block
         int getMaxHeight();
         IMyTextBlock setText(string _text);
         IMyTextBlock setFontSize(int _fontSize);
-        IMyTextBlock setTextColor(string _color);
-        IMyTextBlock setBackgroundColor(string _color);
+        IMyTextBlock setTextColor(string _hexColor);
+        IMyTextBlock setBackgroundColor(string _hexColor);
+        IMyTextBlock setBackgroundImage(string _path);
         IMyTextBlock addOnPreviewMouseDown(IMyController _controller, string _methodName);
+        IMyTextBlock addOnPreviewMouseDown(IMyView _view, string _methodName);
     }
 }

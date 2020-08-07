@@ -8,7 +8,7 @@ namespace MyFramework.basic {
 
         SolidColorBrush getMySolidColorBrush();
 
-        SolidColorBrush setMyConverter(String _color);
+        SolidColorBrush convertFromHex(string _hexColor);
         Color convertStringToColor(string _color);
     }
 }

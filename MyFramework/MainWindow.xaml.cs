@@ -28,9 +28,7 @@ namespace MyFramework {
             builderButton = new BuilderButton();
             testButton = builderButton
                 .activate(this, "testButton_btn")
-                .addOnClick(this, "testMethod")
-                .setTooltip("Ini button Test")
-                .setBackgroundImage("images/WORLDMAP.png");
+                .setTooltip("Ini button Test");
 
             MyList<string> header = new MyList<string>() { "Key", "Name" };
             MyList<string> properties = new MyList<string>() { "key", "name" };
@@ -67,7 +65,7 @@ namespace MyFramework {
             builderProgressBar = new BuilderProgressBar();
             testProgressBar = builderProgressBar
                 .activate(this, "testProgressBar_pgsb")
-                .setIndeterminate(true);
+                .animate(1,100);
         }
 
         public void testMethod() {

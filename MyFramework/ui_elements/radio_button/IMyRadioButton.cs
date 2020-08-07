@@ -6,14 +6,14 @@ namespace MyFramework.ui_elements.radio_button
     public interface IMyRadioButton
     {
         IMyRadioButton setTooltip(string _tooltip);
-        IMyRadioButton setFontWeight(MyFontWeight myFontWeight);
-        IMyRadioButton setFontStretch(MyFontStretch myFontStretch);
+        IMyRadioButton setFontWeight(MyFontWeight _myFontWeight);
+        IMyRadioButton setFontStretch(MyFontStretch _myFontStretch);
         IMyRadioButton setFontSize(int _fontSize);
         IMyRadioButton setFontStyle(MyFontStyle myFontStyle);
-        IMyRadioButton setTextVerticalAlignment(MyVerticalAlignment myVerticalAlignment);
-        IMyRadioButton setTextHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment);
-        IMyRadioButton setVerticalAlignment(MyVerticalAlignment myVerticalAlignment);
-        IMyRadioButton setHorizontalAlignment(MyHorizontalAlignment myHorizontalAlignment);
+        IMyRadioButton setTextVerticalAlignment(MyVerticalAlignment _myVerticalAlignment);
+        IMyRadioButton setTextHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment);
+        IMyRadioButton setVerticalAlignment(MyVerticalAlignment _myVerticalAlignment);
+        IMyRadioButton setHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment);
 
         IMyRadioButton setValue(bool _value);
         bool getValue();
@@ -26,10 +26,12 @@ namespace MyFramework.ui_elements.radio_button
         int getHeight();
         IMyRadioButton setMaxHeight(int _maxHeight);
         int getMaxHeight();
-        IMyRadioButton setBackgroundColor(string _color);
-        IMyRadioButton setTextColor(string _color);
+        IMyRadioButton setBackgroundColor(string _hexColor);
+        IMyRadioButton setTextColor(string _hexColor);
+        IMyRadioButton setBackgroundImage(string _path);
 
         IMyRadioButton addOnClick(IMyController _controller, string _methodName);
         IMyRadioButton addOnChecked(IMyController _controller, string _methodName);
+
     }
 }
