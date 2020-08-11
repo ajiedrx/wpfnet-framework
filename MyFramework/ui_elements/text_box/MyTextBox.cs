@@ -1,20 +1,14 @@
 ﻿using MyFramework.basic;
 using MyFramework.enums;
 using MyFramework.validator;
-using System;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Resources;
 
 namespace MyFramework.ui_elements.text_box
 {
     internal class MyTextBox : MyUIElements, IMyTextBox
     {
         private TextBox myTextBox_txt;
-        private IMySolidColorBrush mySolidColorBrush;
         private MyRegex myRegex;
 
         internal MyTextBox(object _uiElement) : base((TextBox)_uiElement){
@@ -335,14 +329,6 @@ namespace MyFramework.ui_elements.text_box
                 _view.callMethod(_methodName);
             };
             return this;
-        }
-
-        #endregion
-
-        #region set-field
-
-        public void setMySolidColorBrush(IMySolidColorBrush _mySolidColorBrush) {
-            this.mySolidColorBrush = _mySolidColorBrush;
         }
 
         #endregion

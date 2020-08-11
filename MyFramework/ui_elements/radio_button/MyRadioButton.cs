@@ -287,13 +287,5 @@ namespace MyFramework.ui_elements.radio_button
             return this;
         }
         #endregion
-
-        #region set-field
-
-        public void setMySolidColorBrush(IMySolidColorBrush _mySolidColorBrush) {
-            this.mySolidColorBrush = _mySolidColorBrush;
-        }
-
-        #endregion
     }
 }

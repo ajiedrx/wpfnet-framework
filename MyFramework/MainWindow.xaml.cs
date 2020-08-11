@@ -1,4 +1,6 @@
 ﻿using MyFramework.basic;
+using MyFramework.chart.barchart;
+using MyFramework.chart.linechart;
 using MyFramework.ui_elements.button;
 using MyFramework.ui_elements.data_grid;
 using MyFramework.ui_elements.list_box;
@@ -15,6 +17,7 @@ namespace MyFramework {
         BuilderListView builderListView;
         BuilderPasswordBox builderPasswordBox;
         BuilderProgressBar builderProgressBar;
+        BuilderLineChart builderLineChart;
 
         IMyButton testButton;
         IMyDataGrid testDataGrid;
@@ -22,6 +25,7 @@ namespace MyFramework {
         IMyListView testListView;
         IMyPasswordBox testPasswordBox;
         IMyProgressBar testProgressBar;
+        IMyLineChart lineChart;
 
         public MainWindow() {
             InitializeComponent();
@@ -66,6 +70,16 @@ namespace MyFramework {
             testProgressBar = builderProgressBar
                 .activate(this, "testProgressBar_pgsb")
                 .animate(1,100);
+
+            MyList<double> chartDataExample = new MyList<double>() { 10, 20, 30, 40 };
+            MyList<double> chartDataExample2 = new MyList<double>() { 40,30,20,10 };
+            builderLineChart = new BuilderLineChart();
+            lineChart = builderLineChart
+                .activate(this, "lineChart_lc")
+                .addSeries("Series1", chartDataExample)
+                .addSeries("Series2", chartDataExample2)
+                .changeSeriesFillColor("Series1", "#FFFF00")
+                .changeSeriesLineColor("Series1", "#FFFF00");
         }
 
         public void testMethod() {

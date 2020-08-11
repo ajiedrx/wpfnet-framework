@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -58,13 +64,50 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfCharts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>WpfCharts\bin\Debug\WpfCharts.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="basic\IMyCharts.cs" />
+    <Compile Include="basic\MyCartesianChart.cs" />
+    <Compile Include="basic\MyCharts.cs" />
     <Compile Include="basic\MyUIElements.cs" />
+    <Compile Include="chart\barchart\BarChart.xaml.cs">
+      <DependentUpon>BarChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chart\barchart\BuilderBarChart.cs" />
+    <Compile Include="chart\barchart\IMyBarChart.cs" />
+    <Compile Include="chart\barchart\MyBarChart.cs" />
+    <Compile Include="chart\linechart\BuilderLineChart.cs" />
+    <Compile Include="chart\linechart\IMyLineChart.cs" />
+    <Compile Include="chart\linechart\LineChart.xaml.cs">
+      <DependentUpon>LineChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chart\linechart\LineChartStyle.cs" />
+    <Compile Include="chart\linechart\MyLineChart.cs" />
+    <Compile Include="chart\piechart\BuilderPieChart.cs" />
+    <Compile Include="chart\piechart\IMyPieChart.cs" />
+    <Compile Include="chart\piechart\MyPieChart.cs" />
+    <Compile Include="chart\piechart\PieChartM.xaml.cs">
+      <DependentUpon>PieChartM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chart\radarchart\BuilderRadarChart.cs" />
+    <Compile Include="chart\radarchart\IMyRadarChart.cs" />
+    <Compile Include="chart\radarchart\MyRadarChart.cs" />
+    <Compile Include="chart\radarchart\RadarChart.xaml.cs">
+      <DependentUpon>RadarChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chart\worldchart\BuilderWorldMapChart.cs" />
+    <Compile Include="chart\worldchart\IMyWorldMapChart.cs" />
+    <Compile Include="chart\worldchart\MyWorldMapChart.cs" />
+    <Compile Include="chart\worldchart\WorldMapChart.cs" />
+    <Compile Include="enums\MyCartesianChartType.cs" />
     <Compile Include="enums\MyFlowDirection.cs" />
     <Compile Include="enums\MyFontStretch.cs" />
     <Compile Include="enums\MyFontStyle.cs" />
@@ -117,15 +160,42 @@
     <Compile Include="ui_elements\text_box\BuilderTextBox.cs" />
     <Compile Include="ui_elements\text_box\IMyTextBox.cs" />
     <Compile Include="ui_elements\text_box\MyTextBox.cs" />
-    <Compile Include="ui_elements\toggle_button\IMyToggleButton.cs" />
-    <Compile Include="ui_elements\toggle_button\MyToggleButton.cs" />
-    <Compile Include="ui_elements\tool_tip\BuilderToolTip.cs" />
-    <Compile Include="ui_elements\tool_tip\IMyToolTip.cs" />
-    <Compile Include="ui_elements\tool_tip\IMyToolTipInjector.cs" />
-    <Compile Include="ui_elements\tool_tip\MyToolTip.cs" />
     <Compile Include="validator\IValidator.cs" />
     <Compile Include="validator\MyRegex.cs" />
     <Compile Include="validator\Validator.cs" />
+    <Compile Include="WpfCharts\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfCharts\ChartLine.cs" />
+    <Compile Include="WpfCharts\Converters\ConvertBoolToVisibility.cs" />
+    <Compile Include="WpfCharts\Converters\ConvertColorToBrush.cs" />
+    <Compile Include="WpfCharts\Converters\ConvertLegendLocationToAlignment.cs" />
+    <Compile Include="WpfCharts\LegendLocation.cs" />
+    <Compile Include="WpfCharts\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfCharts\SpiderChart.cs" />
+    <Compile Include="WpfCharts\SpiderChartPanel.cs" />
+    <Page Include="chart\barchart\BarChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="chart\linechart\LineChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="chart\piechart\PieChartM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="chart\radarchart\RadarChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="chart\worldchart\WorldMapChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -154,6 +224,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WpfCharts\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfCharts\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -178,6 +256,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="WpfCharts\App.config" />
+    <None Include="WpfCharts\WpfCharts.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -190,6 +270,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ui_elements\ui_elements.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="chart\worldchart\Maps\Indonesia.xml" />
+    <Resource Include="chart\worldchart\Maps\World.xml" />
+    <Resource Include="chart\worldchart\World.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WpfCharts\bin\Debug\WpfCharts.dll" />
+    <Content Include="WpfCharts\bin\Debug\WpfCharts.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
