@@ -3,6 +3,7 @@ using LiveCharts.Wpf;
 using MyFramework.basic;
 using MyFramework.enums;
 using System.Collections.Generic;
+using MyFramework.datastructures;
 
 namespace MyFramework.chart.linechart
 {
@@ -129,7 +130,7 @@ namespace MyFramework.chart.linechart
         /// Change the background color.
         /// </summary>
         /// <param name="_hexColor">A string param.</param>
-        /// <returns>IMyBarChart</returns>
+        /// <returns>IMyLineChart</returns>
         public IMyLineChart changeBackgroundColor(string _hexColor) {
             base.changeBackgroundColor(_hexColor);
             return this;
@@ -138,7 +139,7 @@ namespace MyFramework.chart.linechart
         /// Change the foreground color.
         /// </summary>
         /// <param name="_hexColor">A string param.</param>
-        /// <returns>IMyBarChart</returns>
+        /// <returns>IMyLineChart</returns>
         public IMyLineChart changeForegroundColor(string _hexColor) {
             base.changeForegroundColor(_hexColor);
             return this;

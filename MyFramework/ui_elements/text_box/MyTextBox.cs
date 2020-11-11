@@ -22,7 +22,7 @@ namespace MyFramework.ui_elements.text_box
         /// <param name="_tooltip">A string param.</param>
         /// <typeparam name="string"></typeparam>
         /// <returns>
-        /// IMyTextBlock
+        /// IMyTextBox
         /// </returns>
         public IMyTextBox setTooltip(string _tooltip) {
             base.setTooltip(_tooltip);
@@ -33,7 +33,7 @@ namespace MyFramework.ui_elements.text_box
         /// </summary>
         /// <param name="_myFontWeight"></param>
         /// <typeparam name="MyFontWeight">A MyFontWeight param.</typeparam>
-        /// <returns>IMyTextBlock</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setFontWeight(MyFontWeight _myFontWeight) {
             base.setFontWeight(_myFontWeight);
             return this;
@@ -43,7 +43,7 @@ namespace MyFramework.ui_elements.text_box
         /// </summary>
         /// <param name="_myFontStretch">A MyFontStretch param.</param>
         /// <typeparam name="MyFontStretch"></typeparam>
-        /// <returns>IMyTextBlock</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setFontStretch(MyFontStretch _myFontStretch) {
             base.setFontStretch(_myFontStretch);
             return this;
@@ -53,7 +53,7 @@ namespace MyFramework.ui_elements.text_box
         /// </summary>
         /// <param name="_fontSize">An int param.</param>
         /// <typeparam name="int"></typeparam>
-        /// <returns>IMyTextBlock</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setFontSize(int _fontSize) {
             base.setFontSize(_fontSize);
             return this;
@@ -63,7 +63,7 @@ namespace MyFramework.ui_elements.text_box
         /// </summary>
         /// <param name="_myFontStyle">A MyFontStyle param.</param>
         /// <typeparam name="MyFontStyle"></typeparam>
-        /// <returns>IMyTextBlock</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setFontStyle(MyFontStyle _myFontStyle) {
             base.setFontStyle(_myFontStyle);
             return this;
@@ -73,7 +73,7 @@ namespace MyFramework.ui_elements.text_box
         /// </summary>
         /// <param name="_myVerticalAlignment">A MyVerticalAlignment param.</param>
         /// <typeparam name="MyVerticalAlignment"></typeparam>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setTextVerticalAlignment(MyVerticalAlignment _myVerticalAlignment) {
             base.setTextVerticalAlignment(_myVerticalAlignment);
             return this;
@@ -83,7 +83,7 @@ namespace MyFramework.ui_elements.text_box
         /// </summary>
         /// <param name="_myHorizontalAlignment">A MyHorizontalAlignment param.</param>
         /// <typeparam name="MyHorizontalAlignment"></typeparam>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setTextHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment) {
             base.setTextHorizontalAlignment(_myHorizontalAlignment);
             return this;
@@ -93,7 +93,7 @@ namespace MyFramework.ui_elements.text_box
         /// </summary>
         /// <param name="_myVerticalAlignment">A MyVerticalAlignment param.</param>
         /// <typeparam name="MyVerticalAlignment"></typeparam>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setVerticalAlignment(MyVerticalAlignment _myVerticalAlignment) {
             base.setVerticalAlignment(_myVerticalAlignment);
             return this;
@@ -103,17 +103,17 @@ namespace MyFramework.ui_elements.text_box
         /// </summary>
         /// <param name="_myHorizontalAlignment">A MyHorizontalAlignment param.</param>
         /// <typeparam name="MyHorizontalAlignment"></typeparam>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setHorizontalAlignment(MyHorizontalAlignment _myHorizontalAlignment) {
             base.setHorizontalAlignment(_myHorizontalAlignment);
             return this;
         }
         /// <summary>
-        /// Set the text on the button.
+        /// Set the text on the TextBox.
         /// </summary>
         /// <param name="_text">A string param.</param>
         /// <typeparam name="string"></typeparam>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setText(string _text) {
             myTextBox_txt.Text = _text;
             return this;
@@ -126,68 +126,68 @@ namespace MyFramework.ui_elements.text_box
             return myTextBox_txt.Text.ToString();
         }
         /// <summary>
-        /// Set the width of the button.
+        /// Set the width of the TextBox.
         /// </summary>
         /// <param name="_width">An int param.</param>
         /// <typeparam name="int"></typeparam>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setWidth(int _width) {
             base.setWidth(_width);
             return this;
         }
         /// <summary>
-        /// Get the width of the button.
+        /// Get the width of the TextBox.
         /// </summary>
         /// <returns>int</returns>
         public int getWidth() {
             return base.getWidth();
         }
         /// <summary>
-        /// Set the button max width.
+        /// Set the TextBox max width.
         /// </summary>
         /// <param name="_maxWidth">An int param.</param>
         /// <typeparam name="int"></typeparam>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setMaxWidth(int _maxWidth) {
             base.setMaxWidth(_maxWidth);
             return this;
         }
         /// <summary>
-        /// Get the max width of the button.
+        /// Get the max width of the TextBox.
         /// </summary>
         /// <returns>int</returns>
         public int getMaxWidth() {
             return base.getMaxWidth();
         }
         /// <summary>
-        /// Set the button height.
+        /// Set the TextBox height.
         /// </summary>
         /// <param name="_height">An int param.</param>
         /// <typeparam name="int"></typeparam>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setHeight(int _height) {
             base.setHeight(_height);
             return this;
         }
         /// <summary>
-        /// Get the height of the button.
+        /// Get the height of the TextBox.
         /// </summary>
         /// <returns>int</returns>
         public int getHeight() {
             return base.getHeight();
         }
         /// <summary>
-        /// Set the button max height.
+        /// Set the TextBox max height.
         /// </summary>
         /// <param name="_maxHeight">An int param.</param>
         /// <typeparam name="int"></typeparam>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setMaxHeight(int _maxHeight) {
             base.setMaxHeight(_maxHeight);
             return this;
         }
         /// <summary>
-        /// Get the button max height.
+        /// Get the TextBox max height.
         /// </summary>
         /// <returns>int</returns>
         public int getMaxHeight() {
@@ -203,21 +203,21 @@ namespace MyFramework.ui_elements.text_box
             return this;
         }
         /// <summary>
-        /// Set the button background color.
+        /// Set the TextBox background color.
         /// </summary>
         /// <param name="_color">A string param.</param>
         /// <typeparam name="string"></typeparam>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setBackgroundColor(string _hexColor) {
             base.setBackgroundColor(_hexColor);
             return this;
         }
         /// <summary>
-        /// Set the button text color.
+        /// Set the TextBox text color.
         /// </summary>
         /// <param name="_color">A string hex param.</param>
         /// <typeparam name="string"></typeparam>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyTextBox</returns>
         public IMyTextBox setTextColor(string _hexColor) {
             base.setTextColor(_hexColor);
             return this;

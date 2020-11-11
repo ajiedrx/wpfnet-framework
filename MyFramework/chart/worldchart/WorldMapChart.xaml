@@ -9,6 +9,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <lvc:GeoMap Source="C:\\Users\\ajied\\source\\repos\\rasyidtechlib\\chart\\worldchart\\Maps\\World.xml" Name="worldMapChart_chr" x:FieldModifier="protected"/>
+        <lvc:GeoMap Name="worldMapChart_chr" x:FieldModifier="protected"/>
     </Grid>
 </basic:MyUserControl>

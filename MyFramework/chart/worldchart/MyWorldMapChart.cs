@@ -1,9 +1,13 @@
 ﻿using LiveCharts.Wpf;
 using MyFramework.basic;
 using System;
+using MyFramework.datastructures;
 
 namespace MyFramework.chart.worldchart
 {
+    /// <summary>
+    /// The WorldChartMap main class.
+    /// </summary>
     class MyWorldMapChart : IMyWorldMapChart
     {
         private GeoMap worldMapChart;

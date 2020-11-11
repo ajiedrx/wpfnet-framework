@@ -1,9 +1,8 @@
 ﻿using MyFramework.basic;
-using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using MyFramework.datastructures;
 using WpfCharts;
-
 
 namespace MyFramework.chart.radarchart
 {
@@ -18,20 +17,20 @@ namespace MyFramework.chart.radarchart
             this.lines = new ObservableCollection<ChartLine>();
             radarChart.ShowLegend = true;
             radarChart.LegendLocation = LegendLocation.BottomRight;
-            radarChart.Minimum = 1;
-            radarChart.Ticks = 5;
+            radarChart.Minimum = 0;
+            radarChart.Ticks = 3;
         }
         /// <summary>
         /// Set the axis items.
         /// </summary>
-        /// <param name="_axisItems"></param>
+        /// <param name="_axisItems">A MyList of string param.</param>
         /// <returns>IMyRadarChart</returns>
         public IMyRadarChart setAxisItems(MyList<string> _axisItems) {
             string[] items = new string[_axisItems.Count];
             for (int i = 0; i < _axisItems.Count; i++) {
                 items[i] = _axisItems[i];
             }
-            this.radarChart.Axis = items;
+            this.radarChart.Axis = _axisItems;
             return this;
         }
         private double getMaxValue(MyList<double> _values) {
@@ -62,6 +61,7 @@ namespace MyFramework.chart.radarchart
                 Name = _seriesTitle
             });
             this.radarChart.Lines = lines;
+            radarChart.InvalidateVisual();
             return this;
         }
         /// <summary>

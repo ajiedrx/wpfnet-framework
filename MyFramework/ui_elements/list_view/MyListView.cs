@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Controls;
 using System.Windows.Data;
+using MyFramework.datastructures;
 
 namespace MyFramework.ui_elements.list_view
 {

@@ -24,7 +24,10 @@ namespace MyFramework.basic {
         }
 
         public Color convertStringToColor(string _color) {
-            return (Color)ColorConverter.ConvertFromString(_color);
+            if (_color != null) {
+                return (Color)ColorConverter.ConvertFromString(_color);
+            }
+            return Colors.Black;
         }
     }
 }

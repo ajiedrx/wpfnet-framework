@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestModel>
+	<name>
+		newsomeName
+	</name>
+	<email>
+		newsomeEmail@email.com	
+	</email>
+	<address>
+		newsomeadress
+	</address>
+</TestModel>
+

@@ -1,4 +1,5 @@
 ﻿using MyFramework.basic;
+using MyFramework.datastructures;
 
 namespace MyFramework.chart.barchart
 {

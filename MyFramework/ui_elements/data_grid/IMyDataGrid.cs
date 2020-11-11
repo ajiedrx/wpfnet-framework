@@ -1,5 +1,6 @@
 ﻿using MyFramework.basic;
 using System.Windows.Controls;
+using MyFramework.datastructures;
 
 namespace MyFramework.ui_elements.data_grid {
     public interface IMyDataGrid

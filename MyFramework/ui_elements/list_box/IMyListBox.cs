@@ -1,6 +1,7 @@
 ﻿
 
 using MyFramework.basic;
+using MyFramework.datastructures;
 using MyFramework.enums;
 
 namespace MyFramework.ui_elements.list_box
@@ -20,7 +21,7 @@ namespace MyFramework.ui_elements.list_box
         MyList<string> getSelectedItems();
         int getSelectedItemIndex();
         int getNumberOfItems();
-        IMyListBox addItems(MyList<string> _listOfItem);
+        IMyListBox setItemsSource<T>(MyList<T> _listOfItem);
         IMyListBox setHeight(int _height);
         int getHeight();
         IMyListBox setMaxHeight(int _maxHeight);

@@ -24,7 +24,7 @@ namespace MyFramework.ui_elements.check_box
         /// </summary>
         /// <param name="_container"></param>
         /// <param name="_instanceName"></param>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyCheckBox</returns>
         public IMyCheckBox activate(IMyContainer _container, string _instanceName) {
             IMyCheckBox myCheckBox = new MyCheckBox(_container.getComponentByName(_instanceName));
             return myCheckBox;

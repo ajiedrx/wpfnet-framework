@@ -2,6 +2,7 @@
 using MyFramework.enums;
 using System;
 using System.Windows.Controls;
+using MyFramework.datastructures;
 
 namespace MyFramework.ui_elements.list_box
 {
@@ -27,7 +28,7 @@ namespace MyFramework.ui_elements.list_box
         /// </summary>
         /// <param name="_listOfItem">A MyList of string param.</param>
         /// <returns></returns>
-        public IMyListBox addItems(MyList<string> _listOfItem) {
+        public IMyListBox setItemsSource<T>(MyList<T> _listOfItem) {
             myListBox_lb.ItemsSource = _listOfItem;
             return this;
         }

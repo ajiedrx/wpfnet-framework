@@ -3,6 +3,7 @@ using LiveCharts.Wpf;
 using MyFramework.basic;
 using MyFramework.enums;
 using System;
+using MyFramework.datastructures;
 
 namespace MyFramework.chart.barchart
 {

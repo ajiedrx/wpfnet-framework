@@ -2,6 +2,7 @@
 using LiveCharts.Wpf;
 using MyFramework.basic;
 using System;
+using MyFramework.datastructures;
 
 namespace MyFramework.chart.piechart
 {
@@ -77,13 +78,13 @@ namespace MyFramework.chart.piechart
             return this;
         }
         /// <summary>
-        /// Change series fill color based on a serie's title.
+        /// Change all series fill color.
         /// </summary>
         /// <param name="_seriesTitle"></param>
         /// <param name="_hexColor"></param>
-        /// <returns>IMyLineChart</returns>
+        /// <returns>IMyPieChart</returns>
         public IMyPieChart changeSeriesFillColor(MyList<string> _hexColor) {
-            PieChart chartTemp = new PieChart();
+            PieChart chartTemp;
             chartTemp = pieChart;
             for (int i = 0; i < pieChart.Series.Count; i++) {
                 pieChart.Series[i] = new PieSeries() {
@@ -96,29 +97,34 @@ namespace MyFramework.chart.piechart
             }
             return this;
         }
-
-        //public IMyPieChart changeSeriesFillColor(string _seriesLabel, string _hexColor) {
-        //    PieChart chartTemp = new PieChart();
-        //    chartTemp = pieChart;
-        //    for (int i = 0; i < pieChart.Series.Count; i++) {
-        //        if (pieChart.Series[i].Title.Equals(_seriesLabel)) {
-        //            pieChart.Series[i] = new PieSeries() {
-        //                Fill = mySolidColorBrush.setMyConverter(_hexColor),
-        //                Title = chartTemp.Series[i].Title,
-        //                Values = chartTemp.Series[i].Values,
-        //                DataLabels = chartTemp.Series[i].DataLabels,
-        //                LabelPoint = chartTemp.Series[i].LabelPoint
-        //            };
-        //        }
-        //    }
-        //    return this;
-        //}
+        /// <summary>
+        /// Change series fill color based on a serie's title.
+        /// </summary>
+        /// <param name="_seriesTitle"></param>
+        /// <param name="_hexColor"></param>
+        /// <returns>IMyPieChart</returns>
+        public IMyPieChart changeOneSeriesFillColor(string _seriesLabel, string _hexColor) {
+            PieChart chartTemp;
+            chartTemp = pieChart;
+            for (int i = 0; i < pieChart.Series.Count; i++) {
+                if (pieChart.Series[i].Title.Equals(_seriesLabel)) {
+                    pieChart.Series[i] = new PieSeries() {
+                        Fill = mySolidColorBrush.convertFromHex(_hexColor),
+                        Title = chartTemp.Series[i].Title,
+                        Values = chartTemp.Series[i].Values,
+                        DataLabels = chartTemp.Series[i].DataLabels,
+                        LabelPoint = chartTemp.Series[i].LabelPoint
+                    };
+                }
+            }
+            return this;
+        }
 
         /// <summary>
         /// Delete one serie.
         /// </summary>
         /// <param name="_seriesTitle">A string param.</param>
-        /// <returns>IMyLineChart</returns>
+        /// <returns>IMyPieChart</returns>
         public IMyPieChart deleteSeries(string _seriesTitle) {
             for (int i = 0; i < pieChart.Series.Count; i++) {
                 if (pieChart.Series[i].Title.Equals(_seriesTitle)) {
@@ -135,7 +141,7 @@ namespace MyFramework.chart.piechart
         /// Change the background color.
         /// </summary>
         /// <param name="_hexColor">A string param.</param>
-        /// <returns>IMyBarChart</returns>
+        /// <returns>IMyPieChart</returns>
         public IMyPieChart changeBackgroundColor(string _hexColor) {
             pieChart.Background = mySolidColorBrush.convertFromHex(_hexColor);
             return this;
@@ -144,7 +150,7 @@ namespace MyFramework.chart.piechart
         /// Change the foreground color.
         /// </summary>
         /// <param name="_hexColor">A string param.</param>
-        /// <returns>IMyBarChart</returns>
+        /// <returns>IMyPieChart</returns>
         public IMyPieChart changeForegroundColor(string _hexColor) {
             pieChart.Foreground = mySolidColorBrush.convertFromHex(_hexColor);
             return this;

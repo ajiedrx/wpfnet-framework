@@ -2,6 +2,7 @@
 using LiveCharts.Wpf;
 using MyFramework.enums;
 using System.Collections.Generic;
+using MyFramework.datastructures;
 
 namespace MyFramework.basic {
     public class MyCartesianChart {

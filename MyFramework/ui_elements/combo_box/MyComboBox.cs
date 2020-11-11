@@ -2,6 +2,7 @@
 using MyFramework.enums;
 using System;
 using System.Windows.Controls;
+using MyFramework.datastructures;
 
 namespace MyFramework.ui_elements.combo_box
 {

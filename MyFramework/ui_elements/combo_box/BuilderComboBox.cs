@@ -3,13 +3,13 @@ using System;
 
 namespace MyFramework.ui_elements.combo_box {
     /// <summary>
-    /// The CheckBox element builder class.
+    /// The ComboBox element builder class.
     /// </summary>
     /// <remarks>Below is an usage example</remarks>
     /// <example>
     /// <code>
     /// IMyComboBox comboBox;
-    /// BuilderCheckBox builderComboBox = new BuilderComboBox();
+    /// BuilderComboBox builderComboBox = new BuilderComboBox();
     /// comboBox = builderComboBox
     /// .activate(this, "comboBox_cbx")
     /// .setText("Test")
@@ -24,7 +24,7 @@ namespace MyFramework.ui_elements.combo_box {
         /// </summary>
         /// <param name="_container"></param>
         /// <param name="_instanceName"></param>
-        /// <returns>IMyButton</returns>
+        /// <returns>IMyComboBox</returns>
         public IMyComboBox activate(IMyContainer _container, String _instanceName) {
             IMyComboBox comboBox = new MyComboBox(_container.getComponentByName(_instanceName));
             return comboBox;
