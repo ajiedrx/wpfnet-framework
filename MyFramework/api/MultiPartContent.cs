@@ -13,7 +13,11 @@ namespace MyFramework.api {
         private MyList<MyFile> files;
         private MyList<string> filesKey;
         private MultipartFormDataContent multiPartForm;
-        
+        /// <summary>
+        /// MultiPartContent constructor.
+        /// </summary>
+        /// <param name="_files">A MyList<MyFile> param</param>
+        /// <param name="_filesKey">A MyList<string> param</param>
         public MultiPartContent(MyList<MyFile> _files, MyList<string> _filesKey) {
             multiPartForm = new MultipartFormDataContent();
             files = _files;
@@ -26,11 +30,17 @@ namespace MyFramework.api {
                 multiPartForm.Add(new StreamContent(new MemoryStream(files[i].byteArray)), filesKey[i], files[i].fullFileName);
             }
         }
-
+        /// <summary>
+        /// MultiPartContent constructor.
+        /// </summary>
+        /// <param name="_content">A MultipartFormDataContent param. (Instantiate)</param>
         public MultiPartContent(MultipartFormDataContent _content){
             multiPartForm = _content;
         }
-        
+        /// <summary>
+        /// Get the assigned files.
+        /// </summary>
+        /// <returns>MyList<MyFile></returns>
         public MyList<MyFile> getFiles() {
             if (files != null) {
                 return files;
@@ -38,7 +48,7 @@ namespace MyFramework.api {
             throw new Exception("Files is null");
         }
 
-        public MultipartFormDataContent getMultiPartFormDataContent() {
+        internal MultipartFormDataContent getMultiPartFormDataContent() {
             return multiPartForm;
         }
     }

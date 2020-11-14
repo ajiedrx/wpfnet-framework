@@ -9,28 +9,29 @@ using MyFramework.datastructures;
 namespace MyFramework.api {
     public class ApiClient {
         private string BASE_URL = "";
-        private static HttpClient client;
-        private ApiClient(string _baseUrl){
-            
-        }
-
-        public static HttpClient getClient(){
-            if (client != null){
-                client = new HttpClient();
-            }
-            return client;
-        }
-
-        public void setBaseURL(string _baseUrl){
+        private CoreClient client;
+        /// <summary>
+        /// ApiClient constructor.
+        /// </summary>
+        /// <param name="_baseUrl">A string base URL param.</param>
+        public ApiClient(string _baseUrl){
+            client = CoreClient.getInstance();
             BASE_URL = _baseUrl;
-            client.BaseAddress = new Uri(BASE_URL);
+            //client.getClient().BaseAddress = new Uri(BASE_URL);
         }
+        
         private AuthToken token;
-
+        /// <summary>
+        /// Set authorization token once. Any request executed with authorization token (Bearer).
+        /// </summary>
+        /// <param name="_token">A string token param without Bearer.</param>
         public void setAuthorizationToken(string _token){
             token = new AuthToken(_token);
         }
-
+        /// <summary>
+        /// Get the base URL.
+        /// </summary>
+        /// <returns>string</returns>
         public string getBaseURL(){
             return BASE_URL; 
         }
@@ -38,19 +39,32 @@ namespace MyFramework.api {
         private Action onStartRequest;
         private Action<HttpResponseBundle> onSuccessRequest;
         private Action<HttpResponseBundle> onFailedRequest;
-        
+        /// <summary>
+        /// Set which method executed when http request is done.
+        /// </summary>
+        /// <param name="_method">An Action (Method) with HttpResponseBundle param, param. </param>
         public void setOnSuccessRequest(Action<HttpResponseBundle> _method){
             onSuccessRequest = _method;
         }
-
+        /// <summary>
+        /// Set which method executed before http request executed.
+        /// </summary>
+        /// <param name="_method">An Action (Method) param. </param>
         public void setOnStartRequest(Action _method){
             onStartRequest = _method;
         }
-
+        /// <summary>
+        /// Set which method executed after http request failed.
+        /// </summary>
+        /// <param name="_method">An Action (Method) with HttpResponseBundle param, param. </param>
         public void setOnFailedRequest(Action<HttpResponseBundle> _method){
             onFailedRequest = _method;
         }
-
+        /// <summary>
+        /// Send http request.
+        /// </summary>
+        /// <param name="_httpRequestBundle">An ApiRequestBundle param.</param>
+        /// <returns>HttpResponseBundle</returns>
         public async Task<HttpResponseBundle> sendRequest(ApiRequestBundle _httpRequestBundle) {
             HttpRequestMessage httpRequestMessage = getHttpRequestMessage(_httpRequestBundle);
             if (token != null) {
@@ -59,7 +73,7 @@ namespace MyFramework.api {
                 }
             }
             onStartRequest?.Invoke();
-            var response = new HttpResponseBundle(await client.SendAsync(httpRequestMessage).ConfigureAwait(false));
+            var response = new HttpResponseBundle(await client.getClient().SendAsync(httpRequestMessage).ConfigureAwait(false));
             if (response.getHttpResponseMessage().IsSuccessStatusCode) {
                 onSuccessRequest?.Invoke(response);
                 Console.WriteLine(response.getHttpResponseMessage().Content.ReadAsStringAsync());

@@ -5,19 +5,19 @@ namespace MyFramework.api {
     public class AuthToken{
         private string token;
 
-        public AuthToken(string _token){
+        internal AuthToken(string _token){
+            token = _token;
+        }
+        
+        internal void setToken(string _token){
             token = _token;
         }
 
-        public void setToken(string _token){
-            token = _token;
-        }
-
-        public string getToken(){
+        internal string getToken(){
             return token;
         }
 
-        public void addAuthToken(HttpRequestMessage _apiRequestBundle){
+        internal void addAuthToken(HttpRequestMessage _apiRequestBundle){
             if (token == null || token.Trim().Equals("")) {
                 throw new NullReferenceException("Auth token can't be null or empty.");
             }
@@ -25,7 +25,7 @@ namespace MyFramework.api {
             _apiRequestBundle.Headers.Add("Authorization", "Bearer " + token);
         }
 
-        public bool isAuthenticated(){
+        internal bool isAuthenticated(){
             if (token == null || token.Trim().Equals("")){
                 return false;
             }

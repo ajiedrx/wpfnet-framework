@@ -1,5 +1,0 @@
-{  
-	"name":"ajie",  
-	"email":"ajiedibyor@gmail.com",  
-	"address":"pantaimentari" 
-}

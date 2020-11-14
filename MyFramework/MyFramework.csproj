@@ -38,6 +38,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CsvHelper, Version=15.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>..\packages\CsvHelper.15.0.5\lib\net47\CsvHelper.dll</HintPath>
@@ -107,15 +110,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AnotherRequest.cs" />
     <Compile Include="api\ApiClient.cs" />
     <Compile Include="api\ApiRequestBuilder.cs" />
     <Compile Include="api\ApiRequestBundle.cs" />
     <Compile Include="api\AuthToken.cs" />
+    <Compile Include="api\CoreClient.cs" />
     <Compile Include="api\HttpResponseBundle.cs" />
-    <Compile Include="api\Model\TestModel.cs" />
-    <Compile Include="api\Model\TestModelCollection.cs" />
-    <Compile Include="api\Model\User.cs" />
     <Compile Include="api\MultiPartContent.cs" />
     <Compile Include="basic\IMyCharts.cs" />
     <Compile Include="basic\MyCartesianChart.cs" />
@@ -154,7 +154,6 @@
     <Compile Include="datastructures\JSONOperation.cs" />
     <Compile Include="datastructures\MyDictionary.cs" />
     <Compile Include="datastructures\XMLOperation.cs" />
-    <Compile Include="DeleteSoon.cs" />
     <Compile Include="enums\MyCartesianChartType.cs" />
     <Compile Include="enums\MyFlowDirection.cs" />
     <Compile Include="enums\MyFontStretch.cs" />
@@ -285,7 +284,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="file.csv" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -307,12 +305,6 @@
     <Resource Include="chart\worldchart\Maps\Indonesia.xml" />
     <Resource Include="chart\worldchart\Maps\World.xml" />
     <Resource Include="chart\worldchart\World.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="txt_test.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="XMLParseTest.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

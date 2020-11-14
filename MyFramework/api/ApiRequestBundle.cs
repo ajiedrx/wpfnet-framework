@@ -13,7 +13,6 @@ namespace MyFramework.api {
         private bool multipart;
         private MultiPartContent multiPartContent;
         
-
         public ApiRequestBundle() {
             parameters = new MyDictionary<string, string>();
             headers = new MyDictionary<string, string>();
@@ -45,7 +44,6 @@ namespace MyFramework.api {
         public string getEndpoint(){
             return endpoint;
         }
-        //notincludeinbuilder
         public MyDictionary<string, string> getHeaders(){
             return headers;
         }

@@ -31,8 +31,6 @@ namespace MyFramework {
         }
 
         public void execute(){
-            DeleteSoon ds = new DeleteSoon();
-            ds.execute();
         }
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e){
