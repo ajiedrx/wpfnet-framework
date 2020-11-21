@@ -1,19 +1,16 @@
-﻿<basic:MyWindow
-        xmlns:basic="clr-namespace:MyFramework.basic"
+﻿<basic1:MyWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:linechart="clr-namespace:MyFramework.chart.linechart"
-        xmlns:barchart="clr-namespace:MyFramework.chart.barchart" xmlns:piechart="clr-namespace:MyFramework.chart.piechart" xmlns:radarchart="clr-namespace:MyFramework.chart.radarchart"
-        xmlns:worldchart="clr-namespace:MyFramework.chart.worldchart"
-        xmlns:myFramework="clr-namespace:MyFramework"
-        x:Class="MyFramework.MainWindow"
+        xmlns:basic1="clr-namespace:Velacro.UIElements.Basic"
+        x:Class="Velacro.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="636.804" Width="1738.673">
     <DockPanel Margin="10,10,828,10" >
         <Button Content="Button" Height="586" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <Button Content="Button 2" Height="586" VerticalAlignment="Top" Width="75"/>
         <Button Content="Button 3" Height="586" VerticalAlignment="Top" Width="75"/>
+        
     </DockPanel>
-</basic:MyWindow>
+</basic1:MyWindow>

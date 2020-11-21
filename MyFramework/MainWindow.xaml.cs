@@ -1,28 +1,11 @@
-﻿using MyFramework.basic;
-using MyFramework.chart.linechart;
-using MyFramework.ui_elements.button;
-using MyFramework.ui_elements.data_grid;
-using MyFramework.ui_elements.list_box;
-using MyFramework.ui_elements.list_view;
-using MyFramework.ui_elements.password_box;
-using MyFramework.ui_elements.progress_bar;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
+﻿using System;
 using System.Net.Http;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Media.Imaging;
-using MyFramework.api;
-using MyFramework.datastructures;
-using MyFramework.localfile;
-using Newtonsoft.Json.Linq;
-using RestSharp;
-using ApiClient = MyFramework.api;
-using Image = System.Drawing.Image;
+using Velacro.Api;
+using Velacro.Basic;
+using Velacro.UIElements.Basic;
+using ApiClient = Velacro.Api;
 
-namespace MyFramework {
+namespace Velacro {
     public partial class MainWindow : MyWindow{
         public MainWindow() {
             InitializeComponent();
@@ -30,7 +13,28 @@ namespace MyFramework {
             
         }
 
-        public void execute(){
+        public async void execute(){
+            var client = new ApiClient.ApiClient("http://127.0.0.1:8000/");
+            var request = new ApiRequestBuilder();
+            MyList<string> fileKey = new MyList<string>() { "photo" };
+            
+
+            string token = "";
+            var req = request
+                .buildHttpRequest()
+                .addParameters("email", "john@me.com")
+                .addParameters("password", "password")
+                .setEndpoint("api/login/")
+                .setRequestMethod(HttpMethod.Post);
+            var response = await client.sendRequest(request.getApiRequestBundle());
+            token = response.getJObject()["access_token"].ToString();
+            client.setAuthorizationToken(token);
+            req = request
+                .buildHttpRequest()
+                .setEndpoint("api/ceo")
+                .setRequestMethod(HttpMethod.Get);
+            response = await client.sendRequest(req.getApiRequestBundle());
+            Console.WriteLine(response.getHttpResponseMessage().Content.ReadAsStringAsync().Result);
         }
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e){

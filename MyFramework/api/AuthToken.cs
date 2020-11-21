@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 
-namespace MyFramework.api {
+namespace Velacro.Api {
     public class AuthToken{
         private string token;
 

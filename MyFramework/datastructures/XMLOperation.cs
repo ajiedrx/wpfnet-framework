@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
 
-namespace MyFramework.datastructures {
+namespace Velacro.DataStructures {
     /// <summary>
     /// Main class for XML operation.
     /// </summary>

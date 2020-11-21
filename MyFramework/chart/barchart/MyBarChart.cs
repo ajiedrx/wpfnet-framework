@@ -1,11 +1,9 @@
-﻿using LiveCharts;
-using LiveCharts.Wpf;
-using MyFramework.basic;
-using MyFramework.enums;
-using System;
-using MyFramework.datastructures;
+﻿using LiveCharts.Wpf;
+using Velacro.Basic;
+using Velacro.Chart.Basic;
+using Velacro.Enums;
 
-namespace MyFramework.chart.barchart
+namespace Velacro.Chart.BarChart
 {
     /// <summary>
     /// The BarChart main class.

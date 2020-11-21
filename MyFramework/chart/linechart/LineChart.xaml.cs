@@ -1,6 +1,6 @@
-﻿using MyFramework.basic;
+﻿using Velacro.UIElements.Basic;
 
-namespace MyFramework.chart.linechart
+namespace Velacro.Chart.LineChart
 {
     /// <summary>
     /// Interaction logic for LineChart.xaml

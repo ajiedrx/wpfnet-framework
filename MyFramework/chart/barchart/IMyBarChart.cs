@@ -1,7 +1,6 @@
-﻿using MyFramework.basic;
-using MyFramework.datastructures;
+﻿using Velacro.Basic;
 
-namespace MyFramework.chart.barchart
+namespace Velacro.Chart.BarChart
 {
     public interface IMyBarChart
     {

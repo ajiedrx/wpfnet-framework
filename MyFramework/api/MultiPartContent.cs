@@ -1,14 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using MyFramework.datastructures;
-using MyFramework.localfile;
+using Velacro.Basic;
 
-namespace MyFramework.api {
+namespace Velacro.Api {
+    /// <summary>
+    /// MultiPartContent main class.
+    /// This class used for creating MultiPartContent object for MultiPart request type.
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// MyList<string> fileKey = new MyList<string>(){ "photo" }; 
+    /// var files = new OpenFile().openFile(false);
+    /// var multiPartContent = new MultiPartContent(files, fileKey);
+    /// var multiPartRequest = request
+    /// .buildMultipartRequest(multiPartContent)
+    /// .setRequestMethod(HttpMethod.Post)
+    /// .setEndpoint("api/upload");
+    /// </code>
+    /// </example>
     public class MultiPartContent {
         private MyList<MyFile> files;
         private MyList<string> filesKey;

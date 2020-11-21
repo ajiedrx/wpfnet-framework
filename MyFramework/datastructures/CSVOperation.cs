@@ -1,10 +1,10 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.IO;
 using System.Linq;
 using CsvHelper;
+using Velacro.Basic;
 
-namespace MyFramework.datastructures {
+namespace Velacro.DataStructures {
     /// <summary>
     /// CSV File operation class.
     /// </summary>

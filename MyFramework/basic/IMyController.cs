@@ -1,4 +1,4 @@
-﻿namespace MyFramework.basic {
+﻿namespace Velacro.Basic {
     public interface IMyController : IMyMethodCaller
     {
 

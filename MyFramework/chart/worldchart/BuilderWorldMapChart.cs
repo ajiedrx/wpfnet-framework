@@ -1,7 +1,6 @@
-﻿using MyFramework.basic;
-using System;
+﻿using Velacro.UIElements.Basic;
 
-namespace MyFramework.chart.worldchart
+namespace Velacro.Chart.WorldChart
 {
     /// <summary>
     /// WorldMapChart builder class.

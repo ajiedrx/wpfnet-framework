@@ -1,12 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using MyFramework.datastructures;
+using Velacro.DataStructures;
 
-namespace MyFramework.api {
+namespace Velacro.Api {
+    /// <summary>
+    /// ApiClient main class.
+    /// </summary>
+    /// Below is an usage example for sending regular http request.
+    /// <example>
+    /// <code>
+    /// var client = new ApiClient("http://127.0.0.1:8000/");
+    /// var requestBuilder = new ApiRequestBuilder();
+    /// string token = "";
+    /// var httpRequest = requestBuilder
+    /// .buildHttpRequest()
+    /// .addParameters("email", "john@me.com")
+    /// .addParameters("password", "password")
+    /// .setEndpoint("api/login/")
+    /// .setRequestMethod(HttpMethod.Post);
+    /// var response = await client.sendRequest(httpRequest.getApiRequestBundle());
+    /// </code>
+    /// </example>
     public class ApiClient {
         private string BASE_URL = "";
         private CoreClient client;

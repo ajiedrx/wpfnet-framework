@@ -1,12 +1,6 @@
-﻿using MyFramework.basic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MyFramework.datastructures;
+﻿using Velacro.Basic;
 
-namespace MyFramework.chart.linechart
+namespace Velacro.Chart.LineChart
 {
     public interface IMyLineChart
     {

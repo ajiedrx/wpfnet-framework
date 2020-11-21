@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
-using System.Text;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
-using MyFramework.datastructures;
+using Velacro.Basic;
 
-namespace MyFramework.localfile {
+namespace Velacro.LocalFile {
     public class OpenFile {
         private OpenFileDialog fileDialog;
         private SaveFile saveFile;

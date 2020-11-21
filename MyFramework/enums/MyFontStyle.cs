@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace MyFramework.enums {
+namespace Velacro.Enums {
     public class MyFontStyle
     {
         private FontStyle fontStyle;

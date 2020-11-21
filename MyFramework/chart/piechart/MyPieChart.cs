@@ -1,22 +1,22 @@
-﻿using LiveCharts;
+﻿using System;
+using LiveCharts;
 using LiveCharts.Wpf;
-using MyFramework.basic;
-using System;
-using MyFramework.datastructures;
+using Velacro.Basic;
+using Velacro.UIElements.Basic;
 
-namespace MyFramework.chart.piechart
+namespace Velacro.Chart.PieChart
 {
     /// <summary>
     /// The PieChart main class.
     /// </summary>
     class MyPieChart : IMyPieChart
     {
-        private PieChart pieChart;
+        private LiveCharts.Wpf.PieChart pieChart;
         private IMySolidColorBrush mySolidColorBrush;
         private string pointLabel = "";
 
         internal MyPieChart(Object _pieChart) {
-            this.pieChart = (PieChart)_pieChart;
+            this.pieChart = (LiveCharts.Wpf.PieChart)_pieChart;
             setMySolidColorBrush(new MySolidColorBrush());
         }
         /// <summary>
@@ -84,7 +84,7 @@ namespace MyFramework.chart.piechart
         /// <param name="_hexColor"></param>
         /// <returns>IMyPieChart</returns>
         public IMyPieChart changeSeriesFillColor(MyList<string> _hexColor) {
-            PieChart chartTemp;
+            LiveCharts.Wpf.PieChart chartTemp;
             chartTemp = pieChart;
             for (int i = 0; i < pieChart.Series.Count; i++) {
                 pieChart.Series[i] = new PieSeries() {
@@ -104,7 +104,7 @@ namespace MyFramework.chart.piechart
         /// <param name="_hexColor"></param>
         /// <returns>IMyPieChart</returns>
         public IMyPieChart changeOneSeriesFillColor(string _seriesLabel, string _hexColor) {
-            PieChart chartTemp;
+            LiveCharts.Wpf.PieChart chartTemp;
             chartTemp = pieChart;
             for (int i = 0; i < pieChart.Series.Count; i++) {
                 if (pieChart.Series[i].Title.Equals(_seriesLabel)) {

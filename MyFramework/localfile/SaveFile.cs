@@ -1,8 +1,9 @@
 ﻿using System;
 using System.IO;
 using Microsoft.Win32;
+using Velacro.Basic;
 
-namespace MyFramework.localfile {
+namespace Velacro.LocalFile {
     public class SaveFile{
         private MyFile fileToSave;
         private SaveFileDialog saveFileDialog;

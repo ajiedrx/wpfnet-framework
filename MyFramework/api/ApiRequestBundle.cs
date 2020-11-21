@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using MyFramework.datastructures;
-using MyFramework.localfile;
+﻿using System.Net.Http;
+using Velacro.DataStructures;
 
-namespace MyFramework.api {
+namespace Velacro.Api {
     public class ApiRequestBundle {
         private string endpoint;
         private MyDictionary<string, string> parameters;

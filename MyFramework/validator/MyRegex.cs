@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 
-namespace MyFramework.validator {
+namespace Velacro.Validator {
     public class MyRegex : Regex
     {
         public MyRegex(string pattern) : base(pattern) { }

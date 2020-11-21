@@ -1,7 +1,7 @@
 ﻿using System.IO;
-using MyFramework.datastructures;
+using Velacro.Basic;
 
-namespace MyFramework.localfile {
+namespace Velacro.LocalFile {
     public class TextOperation{
 
         private static string FILE_PATH;

@@ -1,7 +1,7 @@
-﻿using MyFramework.basic;
-using System;
+﻿using System;
+using Velacro.UIElements.Basic;
 
-namespace MyFramework.chart.barchart
+namespace Velacro.Chart.BarChart
 {
     /// <summary>
     /// BarChart builder class.

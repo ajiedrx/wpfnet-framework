@@ -1,6 +1,6 @@
 ﻿
 
-namespace MyFramework.chart.linechart
+namespace Velacro.Chart.LineChart
 {
     public class LineChartStyle
     {

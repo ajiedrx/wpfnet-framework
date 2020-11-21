@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace MyFramework.basic {
+namespace Velacro.Basic {
     public class MyController : IMyController
     {
         private IMyView myView;

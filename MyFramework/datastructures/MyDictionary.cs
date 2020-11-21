@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 
-namespace MyFramework.datastructures {
+namespace Velacro.DataStructures {
     /// <summary>
     /// Main class of MyDictionary.
     /// </summary>

@@ -1,9 +1,8 @@
-﻿using LiveCharts.Wpf;
-using MyFramework.basic;
-using System;
-using MyFramework.datastructures;
+﻿using System;
+using LiveCharts.Wpf;
+using Velacro.Basic;
 
-namespace MyFramework.chart.worldchart
+namespace Velacro.Chart.WorldChart
 {
     /// <summary>
     /// The WorldChartMap main class.

@@ -1,7 +1,6 @@
-﻿using MyFramework.basic;
-using MyFramework.datastructures;
+﻿using Velacro.Basic;
 
-namespace MyFramework.chart.worldchart
+namespace Velacro.Chart.WorldChart
 {
     public interface IMyWorldMapChart
     {

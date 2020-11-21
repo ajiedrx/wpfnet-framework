@@ -1,7 +1,7 @@
-﻿using MyFramework.basic;
-using System;
+﻿using System;
+using Velacro.UIElements.Basic;
 
-namespace MyFramework.chart.linechart
+namespace Velacro.Chart.LineChart
 {
     /// <summary>
     /// LineChart builder class.

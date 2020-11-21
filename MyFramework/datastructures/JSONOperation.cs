@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace MyFramework.datastructures {
+namespace Velacro.DataStructures {
     /// <summary>
     /// Main class of JSONConverter
     /// </summary>

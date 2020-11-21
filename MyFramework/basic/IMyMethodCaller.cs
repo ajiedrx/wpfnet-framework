@@ -1,4 +1,4 @@
-﻿namespace MyFramework.basic {
+﻿namespace Velacro.Basic {
     public interface IMyMethodCaller
     {
         void callMethod(string _methodName);

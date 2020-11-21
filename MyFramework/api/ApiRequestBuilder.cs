@@ -1,13 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using MyFramework.datastructures;
-using MyFramework.localfile;
+﻿using System.Net.Http;
 
-namespace MyFramework.api {
+namespace Velacro.Api {
+    /// <summary>
+    /// ApiRequestBuilder main class.
+    /// This class is used for building http request that sent through ApiClient.
+    /// Below is an usage example.
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// var requestBuilder = new ApiRequestBuilder();
+    /// var request = requestBuilder
+    /// .buildHttpRequest()
+    /// .addParameters("email", "john@me.com")
+    /// .addParameters("password", "password")
+    /// .setEndpoint("api/login/")
+    /// .setRequestMethod(HttpMethod.Post);
+    /// </code>
+    /// </example>
     public class ApiRequestBuilder{
         private ApiRequestBundle apiRequestBundle;
         public ApiRequestBuilder(){

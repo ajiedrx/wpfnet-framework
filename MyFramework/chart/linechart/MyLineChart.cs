@@ -1,11 +1,11 @@
-﻿using LiveCharts;
+﻿using System.Collections.Generic;
 using LiveCharts.Wpf;
-using MyFramework.basic;
-using MyFramework.enums;
-using System.Collections.Generic;
-using MyFramework.datastructures;
+using Velacro.Basic;
+using Velacro.Chart.Basic;
+using Velacro.Enums;
+using Velacro.UIElements.Basic;
 
-namespace MyFramework.chart.linechart
+namespace Velacro.Chart.LineChart
 {
     /// <summary>
     /// The main LineChart class.

@@ -1,7 +1,6 @@
-﻿using MyFramework.basic;
-using System;
+﻿using Velacro.UIElements.Basic;
 
-namespace MyFramework.chart.piechart
+namespace Velacro.Chart.PieChart
 {
     /// <summary>
     /// PieChart builder class.

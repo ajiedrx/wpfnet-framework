@@ -1,4 +1,4 @@
-﻿namespace MyFramework.validator {
+﻿namespace Velacro.Validator {
     public class Validator : IValidator
     {
         private MyRegex regex;
