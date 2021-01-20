@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using Velacro.Basic;
 using Velacro.DataStructures;
 
 namespace Velacro.Api {
@@ -9,10 +10,13 @@ namespace Velacro.Api {
         private HttpMethod requestMethod;
         private bool multipart;
         private MultiPartContent multiPartContent;
+        private string json;
+        private StringContent stringContent;
         
         public ApiRequestBundle() {
             parameters = new MyDictionary<string, string>();
             headers = new MyDictionary<string, string>();
+            
         }
 
         public void addParameters(string _name, string _value) {
@@ -24,6 +28,14 @@ namespace Velacro.Api {
                 headers.Remove("_name");
             }
             headers.Add(_name, _value);
+        }
+
+        public void addJSON<T>(T _object){
+            json = JSONOperation.convertToJSONString<T>(_object);
+        }
+
+        public void addStringContent(StringContent _content){
+            stringContent = _content;
         }
 
         public void setEndpoint(string _endpoint) {
@@ -63,6 +75,14 @@ namespace Velacro.Api {
 
         public MultiPartContent getMultiPartContent(){
             return multiPartContent;
+        }
+
+        public string getJSON(){
+            return json;
+        }
+
+        public StringContent getStringContent(){
+            return stringContent;
         }
     }
 }

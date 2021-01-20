@@ -29,7 +29,7 @@ namespace Velacro.UIElements.RadioButton
         IMyRadioButton setBackgroundColor(string _hexColor);
         IMyRadioButton setTextColor(string _hexColor);
         IMyRadioButton setBackgroundImage(string _path);
-
+        IMyRadioButton setGroupName(string _name);
         IMyRadioButton addOnClick(IMyController _controller, string _methodName);
         IMyRadioButton addOnChecked(IMyController _controller, string _methodName);
 

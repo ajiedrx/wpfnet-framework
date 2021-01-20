@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using Velacro.DataStructures;
 
@@ -39,6 +40,9 @@ namespace Velacro.Api {
         /// <typeparam name="T">A generic param. Adjust with your needs</typeparam>
         /// <returns>T</returns>
         public T getParsedObject<T>(){
+            if (httpResponseMessage.Content == null){
+                throw new NullReferenceException("Http response content is null.");
+            }
             return JSONOperation.parseJSON<T>(httpResponseMessage.Content.ReadAsStringAsync().Result);
         }
         /// <summary>
@@ -60,6 +64,9 @@ namespace Velacro.Api {
         /// John
         /// <returns>JObject</returns>
         public JObject getJObject(){
+            if (httpResponseMessage.Content == null) {
+                throw new NullReferenceException("Http response content is null.");
+            }
             return JObject.Parse(httpResponseMessage.Content.ReadAsStringAsync().Result);
         }
     }

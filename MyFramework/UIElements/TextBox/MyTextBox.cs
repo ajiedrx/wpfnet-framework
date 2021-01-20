@@ -332,6 +332,42 @@ namespace Velacro.UIElements.TextBox
             return this;
         }
 
+        public IMyTextBox addPlaceholderText(string placeholderText) {
+            if (string.IsNullOrWhiteSpace(myTextBox_txt.Text))
+                myTextBox_txt.Text = placeholderText;
+            myTextBox_txt.SetResourceReference(Control.ForegroundProperty,
+                myTextBox_txt.Text != placeholderText
+                    ? "SystemControlForegroundBaseHighBrush"
+                    : "SystemControlForegroundBaseMediumBrush");
+            var ignoreSelectionChanged = false;
+            myTextBox_txt.SelectionChanged += (sender, args) => {
+                if (ignoreSelectionChanged) { ignoreSelectionChanged = false; return; }
+                if (myTextBox_txt.Text != placeholderText) return;
+                ignoreSelectionChanged = true;
+                myTextBox_txt.Select(0, 0);
+            };
+            var lastText = myTextBox_txt.Text;
+            var ignoreTextChanged = false;
+            myTextBox_txt.TextChanged += (sender, args) => {
+                if (ignoreTextChanged) { ignoreTextChanged = false; return; }
+                if (string.IsNullOrWhiteSpace(myTextBox_txt.Text)) {
+                    ignoreTextChanged = true;
+                    myTextBox_txt.Text = placeholderText;
+                    myTextBox_txt.Select(0, 0);
+                } else if (lastText == placeholderText) {
+                    ignoreTextChanged = true;
+                    myTextBox_txt.Text = myTextBox_txt.Text.Substring(0, 1);
+                    myTextBox_txt.Select(1, 0);
+                }
+
+                myTextBox_txt.SetResourceReference(Control.ForegroundProperty,
+                    myTextBox_txt.Text != placeholderText
+                        ? "SystemControlForegroundBaseHighBrush"
+                        : "SystemControlForegroundBaseMediumBrush");
+                lastText = myTextBox_txt.Text;
+            };
+            return this;
+        }
         #endregion
 
     }

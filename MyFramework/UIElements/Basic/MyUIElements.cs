@@ -11,6 +11,10 @@ namespace Velacro.UIElements.Basic {
         private Control uiElement;
         private MySolidColorBrush mySolidColorBrush;
         public MyUIElements(object _uiElement) {
+            // if (_uiElement is System.Windows.Controls.TextBox){
+            //     uiElement = ()_uiElement;
+            // }
+
             uiElement = (Control)_uiElement;
             mySolidColorBrush = new MySolidColorBrush();
         }

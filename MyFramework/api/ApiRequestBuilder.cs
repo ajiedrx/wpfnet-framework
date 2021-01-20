@@ -65,9 +65,20 @@ namespace Velacro.Api {
         /// <param name="_value">A string param</param>
         /// <returns>ApiRequestBuilder</returns>
         public ApiRequestBuilder addHeaders(string _name, string _value) {
-            apiRequestBundle.addParameters(_name,_value);
+            apiRequestBundle.addHeaders(_name,_value);
             return this;
         }
+
+        public ApiRequestBuilder addJSON<T>(T _object){
+            apiRequestBundle.addJSON<T>(_object);
+            return this;
+        }
+
+        public ApiRequestBuilder addStringContent(StringContent _content) {
+            apiRequestBundle.addStringContent(_content);            
+            return this;
+        }
+
         /// <summary>
         /// Set endpoint for the request.
         /// </summary>

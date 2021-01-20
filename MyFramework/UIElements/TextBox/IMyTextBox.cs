@@ -35,5 +35,6 @@ namespace Velacro.UIElements.TextBox
         IMyTextBox addOnTextChanged(IMyController _controller, string _methodName);
         IMyTextBox addOnGotFocus(IMyController _controller, string _methodName);
         IMyTextBox addOnPreviewMouseDown(IMyController _controller, string _methodName);
+        IMyTextBox addPlaceholderText(string placeholderText);
     }
 }

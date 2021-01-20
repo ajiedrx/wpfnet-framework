@@ -97,6 +97,14 @@ namespace Velacro.LocalFile {
             files = getFiles(_multifile);
             return files;
         }
+
+        public MyList<MyFile> openFile(bool _multifile, string _filter) {
+            fileDialog.Filter = _filter;
+            fileDialog.Title = "Select File";
+            MyList<MyFile> files;
+            files = getFiles(_multifile);
+            return files;
+        }
         /// <summary>
         /// Method for Opening OpenFileDialog. Then user can select an image then return as collection of BitmapImage format.
         /// It could be used as Source of UI controls.
@@ -121,6 +129,7 @@ namespace Velacro.LocalFile {
         /// Access the first index ([0]) of the collection for getting the single-file.
         /// </returns>
         public MyList<BitmapImage> openImageFile(bool _multifile){
+            //delete soon
             fileDialog.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" +
                                 "All files (*.*)|*.*";
             fileDialog.Title = "Select Images";

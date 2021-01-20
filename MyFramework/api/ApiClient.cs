@@ -27,6 +27,7 @@ namespace Velacro.Api {
     public class ApiClient {
         private string BASE_URL = "";
         private CoreClient client;
+        
         /// <summary>
         /// ApiClient constructor.
         /// </summary>
@@ -36,7 +37,10 @@ namespace Velacro.Api {
             BASE_URL = _baseUrl;
             //client.getClient().BaseAddress = new Uri(BASE_URL);
         }
-        
+        public ApiClient() {
+            client = CoreClient.getInstance();
+        }
+
         private AuthToken token;
         /// <summary>
         /// Set authorization token once. Any request executed with authorization token (Bearer).
@@ -45,12 +49,28 @@ namespace Velacro.Api {
         public void setAuthorizationToken(string _token){
             token = new AuthToken(_token);
         }
+
+        public void clearAuthorizationToken(){
+            token = null;
+        }
+
+        public string getAuthorizationToken(){
+            if (token != null){
+                return token.getToken();
+            }
+            return "";
+        }
+
         /// <summary>
         /// Get the base URL.
         /// </summary>
         /// <returns>string</returns>
         public string getBaseURL(){
             return BASE_URL; 
+        }
+
+        public void setBaseURL(string _baseURL){
+            BASE_URL = _baseURL;
         }
 
         private Action onStartRequest;
@@ -107,13 +127,20 @@ namespace Velacro.Api {
             }
             return createHttpRequest(_apiRequestBundle);
         }
-
+        //sementara NEED REFACTOR
         internal HttpRequestMessage createHttpRequest(ApiRequestBundle _apiRequestBundle) {
             HttpRequestMessage requestMessage = createRequest(_apiRequestBundle);
             if (_apiRequestBundle.getParameters().Count != 0) {
                 requestMessage.Content = new StringContent(_apiRequestBundle.getParameters().convertToJSON(), Encoding.UTF8,
                      "application/json");
             }
+            if (!String.IsNullOrEmpty(_apiRequestBundle.getJSON())){
+                requestMessage.Content = new StringContent(_apiRequestBundle.getJSON(), Encoding.UTF8, "application/json");
+            }
+            if (_apiRequestBundle.getStringContent() != null){
+                requestMessage.Content = _apiRequestBundle.getStringContent();
+            }
+
             return requestMessage;
         }
 

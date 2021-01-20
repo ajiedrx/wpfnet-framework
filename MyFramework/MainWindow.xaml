@@ -8,9 +8,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="636.804" Width="1738.673">
     <DockPanel Margin="10,10,828,10" >
-        <Button Content="Button" Height="586" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <Button Content="Button 2" Height="586" VerticalAlignment="Top" Width="75"/>
         <Button Content="Button 3" Height="586" VerticalAlignment="Top" Width="75"/>
-        
+        <TextBlock Name="txt_txt" Height="586" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBox Name="email_txt" Height="586" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <RadioButton Content="RadioButton" Height="586" VerticalAlignment="Top"/>
+        <Button Name="buttonNew_btn" Content="Button" Height="586" VerticalAlignment="Top" Width="75"/>
+
     </DockPanel>
 </basic1:MyWindow>
